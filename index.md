@@ -1,0 +1,15362 @@
+---
+title       : Vehicle Fuel Economy Analysis 
+subtitle    : Interactive analysis of Vehicle Fuel Economy
+author      : Mala
+job         : IT Consultant
+framework   : io2012          # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js    # {highlight.js, prettify, highlight}
+hitheme     : solarized_light # tomorrow 
+widgets     : [polycharts, bootstrap, shiny, interactive]
+mode        : selfcontained   # {standalone, selfcontained,draft}
+ext_widgets : {rCharts: [libraries/nvd3]}
+knit        : slidify::knit2slides
+---
+
+### Vehicle Fuel Economy Analysis
+Vehicle Fuel Economy Analysis applicationapp provides an interactive analysis of vehicles fuel combined consumption (city and highway) and annual fuel cost is based on 15,000 miles, 55% city driving, and the price of fuel used by the vehicle based on year make,model and Transmission type(Automatic/Manual).
+
+The raw data for this analysis is downloaded from U.S Department of Energy (Office Of Transportation & Air Quality) http://www.fueleconomy.gov/
+
+The data is spanned from year 1984 to 2015.Only subset of data is used in this application.
+
+### Vehicle Fuel Economy Analysis Plots 
+In Vehicle Fuel Economy Analysis, the following analaysis are done for different car models (Audi,BMW...) considering their transmission type, also the fuel types they use.
+- Vehicle you (+)Spend/(-)Save (Shown in this slidify)
+- Miles Per Gallons(City & Highway) 
+- Fuel Economy Score by Fuel Type and Make (Shown in this slidify)
+- Annual petroleum consumption in barrels
+
+---
+
+
+
+
+## Interactive Vehicle (+)Spend/(-)Save per year
+
+
+<div id = 'stkchart' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawstkchart()
+    });
+    function drawstkchart(){  
+      var opts = {
+ "dom": "stkchart",
+"width":    600,
+"height":    400,
+"x": "year",
+"y": "youSaveSpend",
+"group": "transtype",
+"type": "multiBarChart",
+"id": "stkchart" 
+},
+        data = [
+ {
+ "X": 1,
+"make": "Acura",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -18250 
+},
+{
+ "X": 2,
+"make": "Acura",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -9750 
+},
+{
+ "X": 3,
+"make": "Acura",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -17500 
+},
+{
+ "X": 4,
+"make": "Acura",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 5,
+"make": "Acura",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -13000 
+},
+{
+ "X": 6,
+"make": "Acura",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -5750 
+},
+{
+ "X": 7,
+"make": "Acura",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -20250 
+},
+{
+ "X": 8,
+"make": "Acura",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 9,
+"make": "Acura",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -20250 
+},
+{
+ "X": 10,
+"make": "Acura",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 11,
+"make": "Acura",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -20000 
+},
+{
+ "X": 12,
+"make": "Acura",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -1750 
+},
+{
+ "X": 13,
+"make": "Acura",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -28000 
+},
+{
+ "X": 14,
+"make": "Acura",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -5000 
+},
+{
+ "X": 15,
+"make": "Acura",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -26500 
+},
+{
+ "X": 16,
+"make": "Acura",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 17,
+"make": "Acura",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -25000 
+},
+{
+ "X": 18,
+"make": "Acura",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 19,
+"make": "Acura",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -16750 
+},
+{
+ "X": 20,
+"make": "Acura",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 21,
+"make": "Acura",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -13250 
+},
+{
+ "X": 22,
+"make": "Acura",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 23,
+"make": "Acura",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -10250 
+},
+{
+ "X": 24,
+"make": "Acura",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -750 
+},
+{
+ "X": 25,
+"make": "Aston Martin",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -9500 
+},
+{
+ "X": 26,
+"make": "Aston Martin",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -30000 
+},
+{
+ "X": 27,
+"make": "Aston Martin",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -22000 
+},
+{
+ "X": 28,
+"make": "Aston Martin",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -30000 
+},
+{
+ "X": 29,
+"make": "Aston Martin",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -30250 
+},
+{
+ "X": 30,
+"make": "Aston Martin",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -26000 
+},
+{
+ "X": 31,
+"make": "Aston Martin",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -29000 
+},
+{
+ "X": 32,
+"make": "Aston Martin",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -26000 
+},
+{
+ "X": 33,
+"make": "Aston Martin",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -29000 
+},
+{
+ "X": 34,
+"make": "Aston Martin",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -23500 
+},
+{
+ "X": 35,
+"make": "Aston Martin",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -27250 
+},
+{
+ "X": 36,
+"make": "Aston Martin",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -28250 
+},
+{
+ "X": 37,
+"make": "Aston Martin",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -27250 
+},
+{
+ "X": 38,
+"make": "Aston Martin",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -34250 
+},
+{
+ "X": 39,
+"make": "Aston Martin",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -35500 
+},
+{
+ "X": 40,
+"make": "Aston Martin",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -47250 
+},
+{
+ "X": 41,
+"make": "Aston Martin",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -35500 
+},
+{
+ "X": 42,
+"make": "Aston Martin",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -19000 
+},
+{
+ "X": 43,
+"make": "Aston Martin",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -14000 
+},
+{
+ "X": 44,
+"make": "Aston Martin",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -33000 
+},
+{
+ "X": 45,
+"make": "Aston Martin",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -14000 
+},
+{
+ "X": 46,
+"make": "Aston Martin",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -44500 
+},
+{
+ "X": 47,
+"make": "Aston Martin",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -21000 
+},
+{
+ "X": 48,
+"make": "Audi",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -81750 
+},
+{
+ "X": 49,
+"make": "Audi",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -45250 
+},
+{
+ "X": 50,
+"make": "Audi",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -98000 
+},
+{
+ "X": 51,
+"make": "Audi",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -46250 
+},
+{
+ "X": 52,
+"make": "Audi",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -83750 
+},
+{
+ "X": 53,
+"make": "Audi",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -36500 
+},
+{
+ "X": 54,
+"make": "Audi",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -98750 
+},
+{
+ "X": 55,
+"make": "Audi",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -41500 
+},
+{
+ "X": 56,
+"make": "Audi",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -119750 
+},
+{
+ "X": 57,
+"make": "Audi",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -73500 
+},
+{
+ "X": 58,
+"make": "Audi",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -108250 
+},
+{
+ "X": 59,
+"make": "Audi",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -31000 
+},
+{
+ "X": 60,
+"make": "Audi",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -81250 
+},
+{
+ "X": 61,
+"make": "Audi",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -24500 
+},
+{
+ "X": 62,
+"make": "Audi",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -76750 
+},
+{
+ "X": 63,
+"make": "Audi",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -43500 
+},
+{
+ "X": 64,
+"make": "Audi",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -70500 
+},
+{
+ "X": 65,
+"make": "Audi",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -46750 
+},
+{
+ "X": 66,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -75500 
+},
+{
+ "X": 67,
+"make": "Audi",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 68,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -94500 
+},
+{
+ "X": 69,
+"make": "Audi",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -40500 
+},
+{
+ "X": 70,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -90500 
+},
+{
+ "X": 71,
+"make": "Audi",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -40500 
+},
+{
+ "X": 72,
+"make": "Bentley",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -36500 
+},
+{
+ "X": 73,
+"make": "Bentley",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -36500 
+},
+{
+ "X": 74,
+"make": "Bentley",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -46000 
+},
+{
+ "X": 75,
+"make": "Bentley",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -66750 
+},
+{
+ "X": 76,
+"make": "Bentley",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -69750 
+},
+{
+ "X": 77,
+"make": "Bentley",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -82500 
+},
+{
+ "X": 78,
+"make": "Bentley",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -65250 
+},
+{
+ "X": 79,
+"make": "Bentley",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -45000 
+},
+{
+ "X": 80,
+"make": "Bentley",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -50750 
+},
+{
+ "X": 81,
+"make": "Bentley",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -66250 
+},
+{
+ "X": 82,
+"make": "Bentley",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -47250 
+},
+{
+ "X": 83,
+"make": "Bentley",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -50000 
+},
+{
+ "X": 84,
+"make": "BMW",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -159500 
+},
+{
+ "X": 85,
+"make": "BMW",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -79250 
+},
+{
+ "X": 86,
+"make": "BMW",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -148500 
+},
+{
+ "X": 87,
+"make": "BMW",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -79250 
+},
+{
+ "X": 88,
+"make": "BMW",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -164500 
+},
+{
+ "X": 89,
+"make": "BMW",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -99000 
+},
+{
+ "X": 90,
+"make": "BMW",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -146500 
+},
+{
+ "X": 91,
+"make": "BMW",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -116500 
+},
+{
+ "X": 92,
+"make": "BMW",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -169250 
+},
+{
+ "X": 93,
+"make": "BMW",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -149000 
+},
+{
+ "X": 94,
+"make": "BMW",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -164750 
+},
+{
+ "X": 95,
+"make": "BMW",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -137750 
+},
+{
+ "X": 96,
+"make": "BMW",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -215750 
+},
+{
+ "X": 97,
+"make": "BMW",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -135250 
+},
+{
+ "X": 98,
+"make": "BMW",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -206000 
+},
+{
+ "X": 99,
+"make": "BMW",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -75250 
+},
+{
+ "X": 100,
+"make": "BMW",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -222250 
+},
+{
+ "X": 101,
+"make": "BMW",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -68000 
+},
+{
+ "X": 102,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -214250 
+},
+{
+ "X": 103,
+"make": "BMW",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -75250 
+},
+{
+ "X": 104,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -146750 
+},
+{
+ "X": 105,
+"make": "BMW",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -36250 
+},
+{
+ "X": 106,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -178250 
+},
+{
+ "X": 107,
+"make": "BMW",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -43000 
+},
+{
+ "X": 108,
+"make": "Buick",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -36500 
+},
+{
+ "X": 109,
+"make": "Buick",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -45000 
+},
+{
+ "X": 110,
+"make": "Buick",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -41750 
+},
+{
+ "X": 111,
+"make": "Buick",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -33750 
+},
+{
+ "X": 112,
+"make": "Buick",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -22500 
+},
+{
+ "X": 113,
+"make": "Buick",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -14750 
+},
+{
+ "X": 114,
+"make": "Buick",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -17500 
+},
+{
+ "X": 115,
+"make": "Buick",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -14750 
+},
+{
+ "X": 116,
+"make": "Buick",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 0 
+},
+{
+ "X": 117,
+"make": "Buick",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -9500 
+},
+{
+ "X": 118,
+"make": "Buick",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -750 
+},
+{
+ "X": 119,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -7750 
+},
+{
+ "X": 120,
+"make": "Buick",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -750 
+},
+{
+ "X": 121,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -5750 
+},
+{
+ "X": 122,
+"make": "Buick",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 0 
+},
+{
+ "X": 123,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -5750 
+},
+{
+ "X": 124,
+"make": "Buick",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 0 
+},
+{
+ "X": 125,
+"make": "Cadillac",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -85750 
+},
+{
+ "X": 126,
+"make": "Cadillac",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -9000 
+},
+{
+ "X": 127,
+"make": "Cadillac",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -103750 
+},
+{
+ "X": 128,
+"make": "Cadillac",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -11250 
+},
+{
+ "X": 129,
+"make": "Cadillac",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -118750 
+},
+{
+ "X": 130,
+"make": "Cadillac",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -10500 
+},
+{
+ "X": 131,
+"make": "Cadillac",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -89750 
+},
+{
+ "X": 132,
+"make": "Cadillac",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -11250 
+},
+{
+ "X": 133,
+"make": "Cadillac",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -99250 
+},
+{
+ "X": 134,
+"make": "Cadillac",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 135,
+"make": "Cadillac",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -93000 
+},
+{
+ "X": 136,
+"make": "Cadillac",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 137,
+"make": "Cadillac",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -67250 
+},
+{
+ "X": 138,
+"make": "Cadillac",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -10500 
+},
+{
+ "X": 139,
+"make": "Cadillac",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -80750 
+},
+{
+ "X": 140,
+"make": "Cadillac",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -16500 
+},
+{
+ "X": 141,
+"make": "Cadillac",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -59500 
+},
+{
+ "X": 142,
+"make": "Cadillac",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 143,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -71500 
+},
+{
+ "X": 144,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -14750 
+},
+{
+ "X": 145,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -77250 
+},
+{
+ "X": 146,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -18500 
+},
+{
+ "X": 147,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -61750 
+},
+{
+ "X": 148,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -6500 
+},
+{
+ "X": 149,
+"make": "Chevrolet",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -399750 
+},
+{
+ "X": 150,
+"make": "Chevrolet",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -44250 
+},
+{
+ "X": 151,
+"make": "Chevrolet",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -350250 
+},
+{
+ "X": 152,
+"make": "Chevrolet",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -53750 
+},
+{
+ "X": 153,
+"make": "Chevrolet",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -309750 
+},
+{
+ "X": 154,
+"make": "Chevrolet",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -56750 
+},
+{
+ "X": 155,
+"make": "Chevrolet",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -348500 
+},
+{
+ "X": 156,
+"make": "Chevrolet",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -28250 
+},
+{
+ "X": 157,
+"make": "Chevrolet",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -287000 
+},
+{
+ "X": 158,
+"make": "Chevrolet",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -15000 
+},
+{
+ "X": 159,
+"make": "Chevrolet",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -301000 
+},
+{
+ "X": 160,
+"make": "Chevrolet",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -11500 
+},
+{
+ "X": 161,
+"make": "Chevrolet",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -158000 
+},
+{
+ "X": 162,
+"make": "Chevrolet",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -8750 
+},
+{
+ "X": 163,
+"make": "Chevrolet",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -220750 
+},
+{
+ "X": 164,
+"make": "Chevrolet",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 165,
+"make": "Chevrolet",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -238250 
+},
+{
+ "X": 166,
+"make": "Chevrolet",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -13250 
+},
+{
+ "X": 167,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -178500 
+},
+{
+ "X": 168,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -4250 
+},
+{
+ "X": 169,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -118250 
+},
+{
+ "X": 170,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 0 
+},
+{
+ "X": 171,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -146750 
+},
+{
+ "X": 172,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 173,
+"make": "Chrysler",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -42500 
+},
+{
+ "X": 174,
+"make": "Chrysler",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 175,
+"make": "Chrysler",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -73250 
+},
+{
+ "X": 176,
+"make": "Chrysler",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -18000 
+},
+{
+ "X": 177,
+"make": "Chrysler",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -66500 
+},
+{
+ "X": 178,
+"make": "Chrysler",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -15500 
+},
+{
+ "X": 179,
+"make": "Chrysler",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -75250 
+},
+{
+ "X": 180,
+"make": "Chrysler",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -15500 
+},
+{
+ "X": 181,
+"make": "Chrysler",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -97250 
+},
+{
+ "X": 182,
+"make": "Chrysler",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -14000 
+},
+{
+ "X": 183,
+"make": "Chrysler",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -52500 
+},
+{
+ "X": 184,
+"make": "Chrysler",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 185,
+"make": "Chrysler",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -31750 
+},
+{
+ "X": 186,
+"make": "Chrysler",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -13250 
+},
+{
+ "X": 187,
+"make": "Chrysler",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -19250 
+},
+{
+ "X": 188,
+"make": "Chrysler",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -20750 
+},
+{
+ "X": 189,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -22000 
+},
+{
+ "X": 190,
+"make": "Chrysler",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -10250 
+},
+{
+ "X": 191,
+"make": "Dodge",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -121250 
+},
+{
+ "X": 192,
+"make": "Dodge",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -64250 
+},
+{
+ "X": 193,
+"make": "Dodge",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -143250 
+},
+{
+ "X": 194,
+"make": "Dodge",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -63250 
+},
+{
+ "X": 195,
+"make": "Dodge",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -172750 
+},
+{
+ "X": 196,
+"make": "Dodge",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -60000 
+},
+{
+ "X": 197,
+"make": "Dodge",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -133000 
+},
+{
+ "X": 198,
+"make": "Dodge",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -40250 
+},
+{
+ "X": 199,
+"make": "Dodge",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -182250 
+},
+{
+ "X": 200,
+"make": "Dodge",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -53000 
+},
+{
+ "X": 201,
+"make": "Dodge",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -128750 
+},
+{
+ "X": 202,
+"make": "Dodge",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -26500 
+},
+{
+ "X": 203,
+"make": "Dodge",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -101250 
+},
+{
+ "X": 204,
+"make": "Dodge",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -20250 
+},
+{
+ "X": 205,
+"make": "Dodge",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -98750 
+},
+{
+ "X": 206,
+"make": "Dodge",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -8500 
+},
+{
+ "X": 207,
+"make": "Dodge",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -72500 
+},
+{
+ "X": 208,
+"make": "Dodge",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -8750 
+},
+{
+ "X": 209,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -49750 
+},
+{
+ "X": 210,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -4750 
+},
+{
+ "X": 211,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -48750 
+},
+{
+ "X": 212,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -5000 
+},
+{
+ "X": 213,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -54250 
+},
+{
+ "X": 214,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -23250 
+},
+{
+ "X": 215,
+"make": "Ferrari",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -36500 
+},
+{
+ "X": 216,
+"make": "Ferrari",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -25500 
+},
+{
+ "X": 217,
+"make": "Ferrari",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -49250 
+},
+{
+ "X": 218,
+"make": "Ferrari",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -47500 
+},
+{
+ "X": 219,
+"make": "Ferrari",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -35000 
+},
+{
+ "X": 220,
+"make": "Ferrari",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -33250 
+},
+{
+ "X": 221,
+"make": "Ferrari",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -33250 
+},
+{
+ "X": 222,
+"make": "Ferrari",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -33250 
+},
+{
+ "X": 223,
+"make": "Ferrari",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -33250 
+},
+{
+ "X": 224,
+"make": "Ferrari",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -31500 
+},
+{
+ "X": 225,
+"make": "Ferrari",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -40250 
+},
+{
+ "X": 226,
+"make": "Ferrari",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -31500 
+},
+{
+ "X": 227,
+"make": "Ferrari",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -39000 
+},
+{
+ "X": 228,
+"make": "Ferrari",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -22000 
+},
+{
+ "X": 229,
+"make": "Ferrari",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -63500 
+},
+{
+ "X": 230,
+"make": "Ferrari",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -22000 
+},
+{
+ "X": 231,
+"make": "Ferrari",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -66000 
+},
+{
+ "X": 232,
+"make": "Ferrari",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -81500 
+},
+{
+ "X": 233,
+"make": "Ferrari",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -105000 
+},
+{
+ "X": 234,
+"make": "Ferrari",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -107250 
+},
+{
+ "X": 235,
+"make": "Fiat",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 1250 
+},
+{
+ "X": 236,
+"make": "Fiat",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 2500 
+},
+{
+ "X": 237,
+"make": "Fiat",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 6750 
+},
+{
+ "X": 238,
+"make": "Fiat",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 3750 
+},
+{
+ "X": 239,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 6500 
+},
+{
+ "X": 240,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 3500 
+},
+{
+ "X": 241,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 5000 
+},
+{
+ "X": 242,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 3500 
+},
+{
+ "X": 243,
+"make": "Ford",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -246000 
+},
+{
+ "X": 244,
+"make": "Ford",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -38000 
+},
+{
+ "X": 245,
+"make": "Ford",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -189250 
+},
+{
+ "X": 246,
+"make": "Ford",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -34250 
+},
+{
+ "X": 247,
+"make": "Ford",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -158750 
+},
+{
+ "X": 248,
+"make": "Ford",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -33250 
+},
+{
+ "X": 249,
+"make": "Ford",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -156250 
+},
+{
+ "X": 250,
+"make": "Ford",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -30000 
+},
+{
+ "X": 251,
+"make": "Ford",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -137000 
+},
+{
+ "X": 252,
+"make": "Ford",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -29000 
+},
+{
+ "X": 253,
+"make": "Ford",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -109250 
+},
+{
+ "X": 254,
+"make": "Ford",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -18250 
+},
+{
+ "X": 255,
+"make": "Ford",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -105250 
+},
+{
+ "X": 256,
+"make": "Ford",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 257,
+"make": "Ford",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -190000 
+},
+{
+ "X": 258,
+"make": "Ford",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 259,
+"make": "Ford",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -146250 
+},
+{
+ "X": 260,
+"make": "Ford",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -1500 
+},
+{
+ "X": 261,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -131750 
+},
+{
+ "X": 262,
+"make": "Ford",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 250 
+},
+{
+ "X": 263,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -131500 
+},
+{
+ "X": 264,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 4000 
+},
+{
+ "X": 265,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -40000 
+},
+{
+ "X": 266,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 12000 
+},
+{
+ "X": 267,
+"make": "GMC",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -326750 
+},
+{
+ "X": 268,
+"make": "GMC",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -43250 
+},
+{
+ "X": 269,
+"make": "GMC",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -333250 
+},
+{
+ "X": 270,
+"make": "GMC",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -30500 
+},
+{
+ "X": 271,
+"make": "GMC",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -249250 
+},
+{
+ "X": 272,
+"make": "GMC",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -36000 
+},
+{
+ "X": 273,
+"make": "GMC",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -310500 
+},
+{
+ "X": 274,
+"make": "GMC",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -15250 
+},
+{
+ "X": 275,
+"make": "GMC",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -253000 
+},
+{
+ "X": 276,
+"make": "GMC",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -6500 
+},
+{
+ "X": 277,
+"make": "GMC",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -278250 
+},
+{
+ "X": 278,
+"make": "GMC",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 279,
+"make": "GMC",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -164500 
+},
+{
+ "X": 280,
+"make": "GMC",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -4250 
+},
+{
+ "X": 281,
+"make": "GMC",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -243750 
+},
+{
+ "X": 282,
+"make": "GMC",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -4250 
+},
+{
+ "X": 283,
+"make": "GMC",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -251750 
+},
+{
+ "X": 284,
+"make": "GMC",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -4250 
+},
+{
+ "X": 285,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -196250 
+},
+{
+ "X": 286,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -143000 
+},
+{
+ "X": 287,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -176000 
+},
+{
+ "X": 288,
+"make": "GMC",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -750 
+},
+{
+ "X": 289,
+"make": "Honda",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": 7500 
+},
+{
+ "X": 290,
+"make": "Honda",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": 9250 
+},
+{
+ "X": 291,
+"make": "Honda",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": 7750 
+},
+{
+ "X": 292,
+"make": "Honda",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": 9250 
+},
+{
+ "X": 293,
+"make": "Honda",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -6750 
+},
+{
+ "X": 294,
+"make": "Honda",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -4000 
+},
+{
+ "X": 295,
+"make": "Honda",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -7500 
+},
+{
+ "X": 296,
+"make": "Honda",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 297,
+"make": "Honda",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -8500 
+},
+{
+ "X": 298,
+"make": "Honda",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 299,
+"make": "Honda",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -7000 
+},
+{
+ "X": 300,
+"make": "Honda",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -5500 
+},
+{
+ "X": 301,
+"make": "Honda",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -1500 
+},
+{
+ "X": 302,
+"make": "Honda",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -3000 
+},
+{
+ "X": 303,
+"make": "Honda",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": 6500 
+},
+{
+ "X": 304,
+"make": "Honda",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 2750 
+},
+{
+ "X": 305,
+"make": "Honda",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 15750 
+},
+{
+ "X": 306,
+"make": "Honda",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 5250 
+},
+{
+ "X": 307,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 26000 
+},
+{
+ "X": 308,
+"make": "Honda",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 5500 
+},
+{
+ "X": 309,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 36250 
+},
+{
+ "X": 310,
+"make": "Honda",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 4000 
+},
+{
+ "X": 311,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 29500 
+},
+{
+ "X": 312,
+"make": "Honda",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 5750 
+},
+{
+ "X": 313,
+"make": "Hummer",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -4250 
+},
+{
+ "X": 314,
+"make": "Hummer",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -4250 
+},
+{
+ "X": 315,
+"make": "Hummer",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -5250 
+},
+{
+ "X": 316,
+"make": "Hummer",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 317,
+"make": "Hummer",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -11500 
+},
+{
+ "X": 318,
+"make": "Hummer",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 319,
+"make": "Hummer",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -21000 
+},
+{
+ "X": 320,
+"make": "Hummer",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -8500 
+},
+{
+ "X": 321,
+"make": "Hummer",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -21000 
+},
+{
+ "X": 322,
+"make": "Hummer",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -10500 
+},
+{
+ "X": 323,
+"make": "Hyundai",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -20500 
+},
+{
+ "X": 324,
+"make": "Hyundai",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 325,
+"make": "Hyundai",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -25000 
+},
+{
+ "X": 326,
+"make": "Hyundai",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -7750 
+},
+{
+ "X": 327,
+"make": "Hyundai",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -23000 
+},
+{
+ "X": 328,
+"make": "Hyundai",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 329,
+"make": "Hyundai",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -27000 
+},
+{
+ "X": 330,
+"make": "Hyundai",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -7750 
+},
+{
+ "X": 331,
+"make": "Hyundai",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -25500 
+},
+{
+ "X": 332,
+"make": "Hyundai",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -7750 
+},
+{
+ "X": 333,
+"make": "Hyundai",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -26500 
+},
+{
+ "X": 334,
+"make": "Hyundai",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -2750 
+},
+{
+ "X": 335,
+"make": "Hyundai",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -15750 
+},
+{
+ "X": 336,
+"make": "Hyundai",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 5000 
+},
+{
+ "X": 337,
+"make": "Hyundai",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -14000 
+},
+{
+ "X": 338,
+"make": "Hyundai",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 1750 
+},
+{
+ "X": 339,
+"make": "Hyundai",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -18000 
+},
+{
+ "X": 340,
+"make": "Hyundai",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 750 
+},
+{
+ "X": 341,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -2000 
+},
+{
+ "X": 342,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 5750 
+},
+{
+ "X": 343,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -9500 
+},
+{
+ "X": 344,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 3250 
+},
+{
+ "X": 345,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -6250 
+},
+{
+ "X": 346,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 6250 
+},
+{
+ "X": 347,
+"make": "Infiniti",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -46250 
+},
+{
+ "X": 348,
+"make": "Infiniti",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -5000 
+},
+{
+ "X": 349,
+"make": "Infiniti",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -39500 
+},
+{
+ "X": 350,
+"make": "Infiniti",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -3250 
+},
+{
+ "X": 351,
+"make": "Infiniti",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -54500 
+},
+{
+ "X": 352,
+"make": "Infiniti",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -3250 
+},
+{
+ "X": 353,
+"make": "Infiniti",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -56750 
+},
+{
+ "X": 354,
+"make": "Infiniti",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -6500 
+},
+{
+ "X": 355,
+"make": "Infiniti",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -71000 
+},
+{
+ "X": 356,
+"make": "Infiniti",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -6500 
+},
+{
+ "X": 357,
+"make": "Infiniti",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -71750 
+},
+{
+ "X": 358,
+"make": "Infiniti",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 359,
+"make": "Infiniti",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -70750 
+},
+{
+ "X": 360,
+"make": "Infiniti",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 361,
+"make": "Infiniti",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -59500 
+},
+{
+ "X": 362,
+"make": "Infiniti",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -7500 
+},
+{
+ "X": 363,
+"make": "Infiniti",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -64250 
+},
+{
+ "X": 364,
+"make": "Infiniti",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -11250 
+},
+{
+ "X": 365,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -65750 
+},
+{
+ "X": 366,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 367,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -62500 
+},
+{
+ "X": 368,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -7000 
+},
+{
+ "X": 369,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -68000 
+},
+{
+ "X": 370,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -7000 
+},
+{
+ "X": 371,
+"make": "Isuzu",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -48000 
+},
+{
+ "X": 372,
+"make": "Isuzu",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -7000 
+},
+{
+ "X": 373,
+"make": "Isuzu",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -28500 
+},
+{
+ "X": 374,
+"make": "Isuzu",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -34500 
+},
+{
+ "X": 375,
+"make": "Isuzu",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 376,
+"make": "Isuzu",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -25250 
+},
+{
+ "X": 377,
+"make": "Isuzu",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -1750 
+},
+{
+ "X": 378,
+"make": "Isuzu",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -19750 
+},
+{
+ "X": 379,
+"make": "Isuzu",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -1750 
+},
+{
+ "X": 380,
+"make": "Isuzu",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -4250 
+},
+{
+ "X": 381,
+"make": "Jaguar",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -50250 
+},
+{
+ "X": 382,
+"make": "Jaguar",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -3750 
+},
+{
+ "X": 383,
+"make": "Jaguar",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -66750 
+},
+{
+ "X": 384,
+"make": "Jaguar",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -17750 
+},
+{
+ "X": 385,
+"make": "Jaguar",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -60250 
+},
+{
+ "X": 386,
+"make": "Jaguar",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -7500 
+},
+{
+ "X": 387,
+"make": "Jaguar",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -58000 
+},
+{
+ "X": 388,
+"make": "Jaguar",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -58000 
+},
+{
+ "X": 389,
+"make": "Jaguar",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -45750 
+},
+{
+ "X": 390,
+"make": "Jaguar",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -39750 
+},
+{
+ "X": 391,
+"make": "Jaguar",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -46500 
+},
+{
+ "X": 392,
+"make": "Jaguar",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -46500 
+},
+{
+ "X": 393,
+"make": "Jaguar",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -73750 
+},
+{
+ "X": 394,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -74500 
+},
+{
+ "X": 395,
+"make": "Jaguar",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -81750 
+},
+{
+ "X": 396,
+"make": "Jeep",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -32750 
+},
+{
+ "X": 397,
+"make": "Jeep",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -20000 
+},
+{
+ "X": 398,
+"make": "Jeep",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -45000 
+},
+{
+ "X": 399,
+"make": "Jeep",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -19250 
+},
+{
+ "X": 400,
+"make": "Jeep",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -84500 
+},
+{
+ "X": 401,
+"make": "Jeep",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -15750 
+},
+{
+ "X": 402,
+"make": "Jeep",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -95000 
+},
+{
+ "X": 403,
+"make": "Jeep",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 404,
+"make": "Jeep",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -93250 
+},
+{
+ "X": 405,
+"make": "Jeep",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 406,
+"make": "Jeep",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -104250 
+},
+{
+ "X": 407,
+"make": "Jeep",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -2750 
+},
+{
+ "X": 408,
+"make": "Jeep",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -60250 
+},
+{
+ "X": 409,
+"make": "Jeep",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 410,
+"make": "Jeep",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -35000 
+},
+{
+ "X": 411,
+"make": "Jeep",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -3250 
+},
+{
+ "X": 412,
+"make": "Jeep",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -40250 
+},
+{
+ "X": 413,
+"make": "Jeep",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -5000 
+},
+{
+ "X": 414,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -33750 
+},
+{
+ "X": 415,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 416,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -36500 
+},
+{
+ "X": 417,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -4000 
+},
+{
+ "X": 418,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -34500 
+},
+{
+ "X": 419,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -5000 
+},
+{
+ "X": 420,
+"make": "Kia",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -19000 
+},
+{
+ "X": 421,
+"make": "Kia",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 422,
+"make": "Kia",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -22500 
+},
+{
+ "X": 423,
+"make": "Kia",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -11750 
+},
+{
+ "X": 424,
+"make": "Kia",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -20750 
+},
+{
+ "X": 425,
+"make": "Kia",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -9000 
+},
+{
+ "X": 426,
+"make": "Kia",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -24750 
+},
+{
+ "X": 427,
+"make": "Kia",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": 250 
+},
+{
+ "X": 428,
+"make": "Kia",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -23750 
+},
+{
+ "X": 429,
+"make": "Kia",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": 250 
+},
+{
+ "X": 430,
+"make": "Kia",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -35000 
+},
+{
+ "X": 431,
+"make": "Kia",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": 500 
+},
+{
+ "X": 432,
+"make": "Kia",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -14250 
+},
+{
+ "X": 433,
+"make": "Kia",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 3500 
+},
+{
+ "X": 434,
+"make": "Kia",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -6000 
+},
+{
+ "X": 435,
+"make": "Kia",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 7000 
+},
+{
+ "X": 436,
+"make": "Kia",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 7000 
+},
+{
+ "X": 437,
+"make": "Kia",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 6000 
+},
+{
+ "X": 438,
+"make": "Kia",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 15500 
+},
+{
+ "X": 439,
+"make": "Kia",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 6000 
+},
+{
+ "X": 440,
+"make": "Kia",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 9500 
+},
+{
+ "X": 441,
+"make": "Kia",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 6250 
+},
+{
+ "X": 442,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 3500 
+},
+{
+ "X": 443,
+"make": "Kia",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 5250 
+},
+{
+ "X": 444,
+"make": "Lamborghini",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -25500 
+},
+{
+ "X": 445,
+"make": "Lamborghini",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -29500 
+},
+{
+ "X": 446,
+"make": "Lamborghini",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -25500 
+},
+{
+ "X": 447,
+"make": "Lamborghini",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -29500 
+},
+{
+ "X": 448,
+"make": "Lamborghini",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -33250 
+},
+{
+ "X": 449,
+"make": "Lamborghini",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -36750 
+},
+{
+ "X": 450,
+"make": "Lamborghini",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -41500 
+},
+{
+ "X": 451,
+"make": "Lamborghini",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -44750 
+},
+{
+ "X": 452,
+"make": "Lamborghini",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -58750 
+},
+{
+ "X": 453,
+"make": "Lamborghini",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -50000 
+},
+{
+ "X": 454,
+"make": "Lamborghini",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -37500 
+},
+{
+ "X": 455,
+"make": "Lamborghini",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -44750 
+},
+{
+ "X": 456,
+"make": "Lamborghini",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -50250 
+},
+{
+ "X": 457,
+"make": "Lamborghini",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -44750 
+},
+{
+ "X": 458,
+"make": "Lamborghini",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -12000 
+},
+{
+ "X": 459,
+"make": "Lamborghini",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -15250 
+},
+{
+ "X": 460,
+"make": "Lamborghini",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -21500 
+},
+{
+ "X": 461,
+"make": "Lamborghini",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -15250 
+},
+{
+ "X": 462,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -32500 
+},
+{
+ "X": 463,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -15250 
+},
+{
+ "X": 464,
+"make": "Lamborghini",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -42000 
+},
+{
+ "X": 465,
+"make": "Lamborghini",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -15250 
+},
+{
+ "X": 466,
+"make": "Lamborghini",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -36000 
+},
+{
+ "X": 467,
+"make": "Land Rover",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -25500 
+},
+{
+ "X": 468,
+"make": "Land Rover",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -27000 
+},
+{
+ "X": 469,
+"make": "Land Rover",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -37500 
+},
+{
+ "X": 470,
+"make": "Land Rover",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -36500 
+},
+{
+ "X": 471,
+"make": "Land Rover",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -33750 
+},
+{
+ "X": 472,
+"make": "Land Rover",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -43500 
+},
+{
+ "X": 473,
+"make": "Land Rover",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -43500 
+},
+{
+ "X": 474,
+"make": "Land Rover",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -43500 
+},
+{
+ "X": 475,
+"make": "Land Rover",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -45500 
+},
+{
+ "X": 476,
+"make": "Land Rover",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -41500 
+},
+{
+ "X": 477,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -60250 
+},
+{
+ "X": 478,
+"make": "Land Rover",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -47750 
+},
+{
+ "X": 479,
+"make": "Lexus",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -43500 
+},
+{
+ "X": 480,
+"make": "Lexus",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 481,
+"make": "Lexus",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -44750 
+},
+{
+ "X": 482,
+"make": "Lexus",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 483,
+"make": "Lexus",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -52000 
+},
+{
+ "X": 484,
+"make": "Lexus",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 485,
+"make": "Lexus",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -60750 
+},
+{
+ "X": 486,
+"make": "Lexus",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 487,
+"make": "Lexus",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -67750 
+},
+{
+ "X": 488,
+"make": "Lexus",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 489,
+"make": "Lexus",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -75250 
+},
+{
+ "X": 490,
+"make": "Lexus",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 491,
+"make": "Lexus",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -61250 
+},
+{
+ "X": 492,
+"make": "Lexus",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 493,
+"make": "Lexus",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -55500 
+},
+{
+ "X": 494,
+"make": "Lexus",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 495,
+"make": "Lexus",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -44000 
+},
+{
+ "X": 496,
+"make": "Lexus",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 497,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -44250 
+},
+{
+ "X": 498,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -48000 
+},
+{
+ "X": 499,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -50750 
+},
+{
+ "X": 500,
+"make": "Lincoln",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -45000 
+},
+{
+ "X": 501,
+"make": "Lincoln",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -46250 
+},
+{
+ "X": 502,
+"make": "Lincoln",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -37750 
+},
+{
+ "X": 503,
+"make": "Lincoln",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -34000 
+},
+{
+ "X": 504,
+"make": "Lincoln",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -33000 
+},
+{
+ "X": 505,
+"make": "Lincoln",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -19750 
+},
+{
+ "X": 506,
+"make": "Lincoln",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -28500 
+},
+{
+ "X": 507,
+"make": "Lincoln",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -41500 
+},
+{
+ "X": 508,
+"make": "Lincoln",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -23250 
+},
+{
+ "X": 509,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -22500 
+},
+{
+ "X": 510,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -22500 
+},
+{
+ "X": 511,
+"make": "Lincoln",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -29500 
+},
+{
+ "X": 512,
+"make": "Lotus",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 513,
+"make": "Lotus",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 514,
+"make": "Lotus",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 515,
+"make": "Lotus",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 516,
+"make": "Lotus",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 517,
+"make": "Lotus",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -3750 
+},
+{
+ "X": 518,
+"make": "Lotus",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -6250 
+},
+{
+ "X": 519,
+"make": "Lotus",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -1750 
+},
+{
+ "X": 520,
+"make": "Lotus",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 521,
+"make": "Lotus",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -3750 
+},
+{
+ "X": 522,
+"make": "Lotus",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -5750 
+},
+{
+ "X": 523,
+"make": "Lotus",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -3750 
+},
+{
+ "X": 524,
+"make": "Lotus",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -5750 
+},
+{
+ "X": 525,
+"make": "Lotus",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -4000 
+},
+{
+ "X": 526,
+"make": "Lotus",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -5750 
+},
+{
+ "X": 527,
+"make": "Maserati",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -22000 
+},
+{
+ "X": 528,
+"make": "Maserati",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -22000 
+},
+{
+ "X": 529,
+"make": "Maserati",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -33000 
+},
+{
+ "X": 530,
+"make": "Maserati",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -22000 
+},
+{
+ "X": 531,
+"make": "Maserati",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -19000 
+},
+{
+ "X": 532,
+"make": "Maserati",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -8250 
+},
+{
+ "X": 533,
+"make": "Maserati",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -17750 
+},
+{
+ "X": 534,
+"make": "Maserati",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -15250 
+},
+{
+ "X": 535,
+"make": "Maserati",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -15250 
+},
+{
+ "X": 536,
+"make": "Maserati",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -37500 
+},
+{
+ "X": 537,
+"make": "Maserati",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -36250 
+},
+{
+ "X": 538,
+"make": "Maserati",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -21000 
+},
+{
+ "X": 539,
+"make": "Maserati",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -21250 
+},
+{
+ "X": 540,
+"make": "Maserati",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -31750 
+},
+{
+ "X": 541,
+"make": "Maserati",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -31750 
+},
+{
+ "X": 542,
+"make": "Maybach",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -19000 
+},
+{
+ "X": 543,
+"make": "Maybach",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -19000 
+},
+{
+ "X": 544,
+"make": "Maybach",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -30000 
+},
+{
+ "X": 545,
+"make": "Maybach",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -44000 
+},
+{
+ "X": 546,
+"make": "Maybach",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -44000 
+},
+{
+ "X": 547,
+"make": "Maybach",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -44000 
+},
+{
+ "X": 548,
+"make": "Maybach",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -33000 
+},
+{
+ "X": 549,
+"make": "Maybach",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -44000 
+},
+{
+ "X": 550,
+"make": "Maybach",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -55000 
+},
+{
+ "X": 551,
+"make": "Mazda",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -32500 
+},
+{
+ "X": 552,
+"make": "Mazda",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -28000 
+},
+{
+ "X": 553,
+"make": "Mazda",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -35000 
+},
+{
+ "X": 554,
+"make": "Mazda",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -27250 
+},
+{
+ "X": 555,
+"make": "Mazda",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -32750 
+},
+{
+ "X": 556,
+"make": "Mazda",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -26250 
+},
+{
+ "X": 557,
+"make": "Mazda",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -38500 
+},
+{
+ "X": 558,
+"make": "Mazda",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -24000 
+},
+{
+ "X": 559,
+"make": "Mazda",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -38250 
+},
+{
+ "X": 560,
+"make": "Mazda",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -18500 
+},
+{
+ "X": 561,
+"make": "Mazda",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -29750 
+},
+{
+ "X": 562,
+"make": "Mazda",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 563,
+"make": "Mazda",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -20250 
+},
+{
+ "X": 564,
+"make": "Mazda",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -8750 
+},
+{
+ "X": 565,
+"make": "Mazda",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -16250 
+},
+{
+ "X": 566,
+"make": "Mazda",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 567,
+"make": "Mazda",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -7750 
+},
+{
+ "X": 568,
+"make": "Mazda",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 1750 
+},
+{
+ "X": 569,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 2000 
+},
+{
+ "X": 570,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 3250 
+},
+{
+ "X": 571,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 15250 
+},
+{
+ "X": 572,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 7500 
+},
+{
+ "X": 573,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 13750 
+},
+{
+ "X": 574,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 8500 
+},
+{
+ "X": 575,
+"make": "Mercedes-Benz",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -244500 
+},
+{
+ "X": 576,
+"make": "Mercedes-Benz",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -25500 
+},
+{
+ "X": 577,
+"make": "Mercedes-Benz",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -257250 
+},
+{
+ "X": 578,
+"make": "Mercedes-Benz",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -15500 
+},
+{
+ "X": 579,
+"make": "Mercedes-Benz",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -275000 
+},
+{
+ "X": 580,
+"make": "Mercedes-Benz",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -12000 
+},
+{
+ "X": 581,
+"make": "Mercedes-Benz",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -273500 
+},
+{
+ "X": 582,
+"make": "Mercedes-Benz",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -14000 
+},
+{
+ "X": 583,
+"make": "Mercedes-Benz",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -305250 
+},
+{
+ "X": 584,
+"make": "Mercedes-Benz",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -9500 
+},
+{
+ "X": 585,
+"make": "Mercedes-Benz",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -275000 
+},
+{
+ "X": 586,
+"make": "Mercedes-Benz",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -5750 
+},
+{
+ "X": 587,
+"make": "Mercedes-Benz",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -236750 
+},
+{
+ "X": 588,
+"make": "Mercedes-Benz",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -8250 
+},
+{
+ "X": 589,
+"make": "Mercedes-Benz",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -260250 
+},
+{
+ "X": 590,
+"make": "Mercedes-Benz",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -9000 
+},
+{
+ "X": 591,
+"make": "Mercedes-Benz",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -234250 
+},
+{
+ "X": 592,
+"make": "Mercedes-Benz",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 593,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -273500 
+},
+{
+ "X": 594,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 595,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -269750 
+},
+{
+ "X": 596,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 597,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -210000 
+},
+{
+ "X": 598,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 599,
+"make": "Mercury",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -52750 
+},
+{
+ "X": 600,
+"make": "Mercury",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -70000 
+},
+{
+ "X": 601,
+"make": "Mercury",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -42000 
+},
+{
+ "X": 602,
+"make": "Mercury",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 603,
+"make": "Mercury",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -43000 
+},
+{
+ "X": 604,
+"make": "Mercury",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 605,
+"make": "Mercury",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -31250 
+},
+{
+ "X": 606,
+"make": "Mercury",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 607,
+"make": "Mercury",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -28000 
+},
+{
+ "X": 608,
+"make": "Mercury",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 609,
+"make": "Mercury",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -17750 
+},
+{
+ "X": 610,
+"make": "Mercury",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 250 
+},
+{
+ "X": 611,
+"make": "Mercury",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -1500 
+},
+{
+ "X": 612,
+"make": "Mercury",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 250 
+},
+{
+ "X": 613,
+"make": "MINI",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -750 
+},
+{
+ "X": 614,
+"make": "MINI",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 615,
+"make": "MINI",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -3750 
+},
+{
+ "X": 616,
+"make": "MINI",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 617,
+"make": "MINI",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -3750 
+},
+{
+ "X": 618,
+"make": "MINI",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 619,
+"make": "MINI",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -2500 
+},
+{
+ "X": 620,
+"make": "MINI",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 621,
+"make": "MINI",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": 3500 
+},
+{
+ "X": 622,
+"make": "MINI",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": 1750 
+},
+{
+ "X": 623,
+"make": "MINI",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": 250 
+},
+{
+ "X": 624,
+"make": "MINI",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": 6750 
+},
+{
+ "X": 625,
+"make": "MINI",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": 0 
+},
+{
+ "X": 626,
+"make": "MINI",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 5500 
+},
+{
+ "X": 627,
+"make": "MINI",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": 3500 
+},
+{
+ "X": 628,
+"make": "MINI",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 8000 
+},
+{
+ "X": 629,
+"make": "MINI",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 6250 
+},
+{
+ "X": 630,
+"make": "MINI",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 11250 
+},
+{
+ "X": 631,
+"make": "MINI",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 8000 
+},
+{
+ "X": 632,
+"make": "MINI",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 12500 
+},
+{
+ "X": 633,
+"make": "MINI",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 10000 
+},
+{
+ "X": 634,
+"make": "MINI",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 15000 
+},
+{
+ "X": 635,
+"make": "MINI",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 4750 
+},
+{
+ "X": 636,
+"make": "MINI",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 9250 
+},
+{
+ "X": 637,
+"make": "Mitsubishi",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -61000 
+},
+{
+ "X": 638,
+"make": "Mitsubishi",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 639,
+"make": "Mitsubishi",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -45000 
+},
+{
+ "X": 640,
+"make": "Mitsubishi",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -20500 
+},
+{
+ "X": 641,
+"make": "Mitsubishi",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -48500 
+},
+{
+ "X": 642,
+"make": "Mitsubishi",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -33500 
+},
+{
+ "X": 643,
+"make": "Mitsubishi",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -45500 
+},
+{
+ "X": 644,
+"make": "Mitsubishi",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -28000 
+},
+{
+ "X": 645,
+"make": "Mitsubishi",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -60500 
+},
+{
+ "X": 646,
+"make": "Mitsubishi",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -16250 
+},
+{
+ "X": 647,
+"make": "Mitsubishi",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -59000 
+},
+{
+ "X": 648,
+"make": "Mitsubishi",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -21500 
+},
+{
+ "X": 649,
+"make": "Mitsubishi",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -38500 
+},
+{
+ "X": 650,
+"make": "Mitsubishi",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -9750 
+},
+{
+ "X": 651,
+"make": "Mitsubishi",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -27750 
+},
+{
+ "X": 652,
+"make": "Mitsubishi",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -750 
+},
+{
+ "X": 653,
+"make": "Mitsubishi",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -8750 
+},
+{
+ "X": 654,
+"make": "Mitsubishi",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 655,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -500 
+},
+{
+ "X": 656,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -1500 
+},
+{
+ "X": 657,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 6750 
+},
+{
+ "X": 658,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 1500 
+},
+{
+ "X": 659,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 750 
+},
+{
+ "X": 660,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 1500 
+},
+{
+ "X": 661,
+"make": "Nissan",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -101000 
+},
+{
+ "X": 662,
+"make": "Nissan",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -40750 
+},
+{
+ "X": 663,
+"make": "Nissan",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -82750 
+},
+{
+ "X": 664,
+"make": "Nissan",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -28250 
+},
+{
+ "X": 665,
+"make": "Nissan",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -83250 
+},
+{
+ "X": 666,
+"make": "Nissan",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -26000 
+},
+{
+ "X": 667,
+"make": "Nissan",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -94250 
+},
+{
+ "X": 668,
+"make": "Nissan",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -22250 
+},
+{
+ "X": 669,
+"make": "Nissan",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -104250 
+},
+{
+ "X": 670,
+"make": "Nissan",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -23750 
+},
+{
+ "X": 671,
+"make": "Nissan",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -122250 
+},
+{
+ "X": 672,
+"make": "Nissan",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -21000 
+},
+{
+ "X": 673,
+"make": "Nissan",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -96250 
+},
+{
+ "X": 674,
+"make": "Nissan",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -19000 
+},
+{
+ "X": 675,
+"make": "Nissan",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -86000 
+},
+{
+ "X": 676,
+"make": "Nissan",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -15000 
+},
+{
+ "X": 677,
+"make": "Nissan",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -85750 
+},
+{
+ "X": 678,
+"make": "Nissan",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -14750 
+},
+{
+ "X": 679,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -60000 
+},
+{
+ "X": 680,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -11500 
+},
+{
+ "X": 681,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -57250 
+},
+{
+ "X": 682,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -11500 
+},
+{
+ "X": 683,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -51250 
+},
+{
+ "X": 684,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -11750 
+},
+{
+ "X": 685,
+"make": "Pontiac",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -30000 
+},
+{
+ "X": 686,
+"make": "Pontiac",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 687,
+"make": "Pontiac",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -35000 
+},
+{
+ "X": 688,
+"make": "Pontiac",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 689,
+"make": "Pontiac",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -39750 
+},
+{
+ "X": 690,
+"make": "Pontiac",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -8000 
+},
+{
+ "X": 691,
+"make": "Pontiac",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -27500 
+},
+{
+ "X": 692,
+"make": "Pontiac",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -5750 
+},
+{
+ "X": 693,
+"make": "Pontiac",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -31500 
+},
+{
+ "X": 694,
+"make": "Pontiac",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -1000 
+},
+{
+ "X": 695,
+"make": "Pontiac",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -23000 
+},
+{
+ "X": 696,
+"make": "Pontiac",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": 1000 
+},
+{
+ "X": 697,
+"make": "Pontiac",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -2000 
+},
+{
+ "X": 698,
+"make": "Pontiac",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 8250 
+},
+{
+ "X": 699,
+"make": "Porsche",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -84750 
+},
+{
+ "X": 700,
+"make": "Porsche",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -104500 
+},
+{
+ "X": 701,
+"make": "Porsche",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -136000 
+},
+{
+ "X": 702,
+"make": "Porsche",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -140500 
+},
+{
+ "X": 703,
+"make": "Porsche",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -63500 
+},
+{
+ "X": 704,
+"make": "Porsche",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -49250 
+},
+{
+ "X": 705,
+"make": "Porsche",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -71250 
+},
+{
+ "X": 706,
+"make": "Porsche",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -71750 
+},
+{
+ "X": 707,
+"make": "Porsche",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -82750 
+},
+{
+ "X": 708,
+"make": "Porsche",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -82250 
+},
+{
+ "X": 709,
+"make": "Porsche",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -74500 
+},
+{
+ "X": 710,
+"make": "Porsche",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -63500 
+},
+{
+ "X": 711,
+"make": "Porsche",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -100750 
+},
+{
+ "X": 712,
+"make": "Porsche",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -79750 
+},
+{
+ "X": 713,
+"make": "Porsche",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -86750 
+},
+{
+ "X": 714,
+"make": "Porsche",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -76250 
+},
+{
+ "X": 715,
+"make": "Porsche",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -106250 
+},
+{
+ "X": 716,
+"make": "Porsche",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -70000 
+},
+{
+ "X": 717,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -80750 
+},
+{
+ "X": 718,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -33250 
+},
+{
+ "X": 719,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -103750 
+},
+{
+ "X": 720,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -33750 
+},
+{
+ "X": 721,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -98750 
+},
+{
+ "X": 722,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -43500 
+},
+{
+ "X": 723,
+"make": "Ram",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -1750 
+},
+{
+ "X": 724,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -37750 
+},
+{
+ "X": 725,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -34750 
+},
+{
+ "X": 726,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -35250 
+},
+{
+ "X": 727,
+"make": "Rolls-Royce",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -9500 
+},
+{
+ "X": 728,
+"make": "Rolls-Royce",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -9500 
+},
+{
+ "X": 729,
+"make": "Rolls-Royce",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -9500 
+},
+{
+ "X": 730,
+"make": "Rolls-Royce",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -16500 
+},
+{
+ "X": 731,
+"make": "Rolls-Royce",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -24750 
+},
+{
+ "X": 732,
+"make": "Rolls-Royce",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -33000 
+},
+{
+ "X": 733,
+"make": "Rolls-Royce",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -40000 
+},
+{
+ "X": 734,
+"make": "Rolls-Royce",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -40000 
+},
+{
+ "X": 735,
+"make": "Rolls-Royce",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -47000 
+},
+{
+ "X": 736,
+"make": "Rolls-Royce",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -47000 
+},
+{
+ "X": 737,
+"make": "Rolls-Royce",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -54000 
+},
+{
+ "X": 738,
+"make": "Rolls-Royce",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -54000 
+},
+{
+ "X": 739,
+"make": "Roush Performance",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 740,
+"make": "Roush Performance",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -77000 
+},
+{
+ "X": 741,
+"make": "Roush Performance",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 742,
+"make": "Roush Performance",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -66000 
+},
+{
+ "X": 743,
+"make": "Roush Performance",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -11250 
+},
+{
+ "X": 744,
+"make": "Roush Performance",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -63000 
+},
+{
+ "X": 745,
+"make": "Roush Performance",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 746,
+"make": "Roush Performance",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -6000 
+},
+{
+ "X": 747,
+"make": "Roush Performance",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 748,
+"make": "Roush Performance",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -5250 
+},
+{
+ "X": 749,
+"make": "Roush Performance",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -4500 
+},
+{
+ "X": 750,
+"make": "Roush Performance",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 751,
+"make": "Roush Performance",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -4500 
+},
+{
+ "X": 752,
+"make": "Roush Performance",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -6000 
+},
+{
+ "X": 753,
+"make": "Roush Performance",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -4500 
+},
+{
+ "X": 754,
+"make": "Roush Performance",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 755,
+"make": "Roush Performance",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -62500 
+},
+{
+ "X": 756,
+"make": "Roush Performance",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 757,
+"make": "Saab",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -18250 
+},
+{
+ "X": 758,
+"make": "Saab",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -16750 
+},
+{
+ "X": 759,
+"make": "Saab",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -26750 
+},
+{
+ "X": 760,
+"make": "Saab",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -13500 
+},
+{
+ "X": 761,
+"make": "Saab",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -37000 
+},
+{
+ "X": 762,
+"make": "Saab",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -24500 
+},
+{
+ "X": 763,
+"make": "Saab",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -31000 
+},
+{
+ "X": 764,
+"make": "Saab",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -18250 
+},
+{
+ "X": 765,
+"make": "Saab",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -56000 
+},
+{
+ "X": 766,
+"make": "Saab",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -29250 
+},
+{
+ "X": 767,
+"make": "Saab",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -39000 
+},
+{
+ "X": 768,
+"make": "Saab",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -19500 
+},
+{
+ "X": 769,
+"make": "Saab",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -10750 
+},
+{
+ "X": 770,
+"make": "Saab",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -1500 
+},
+{
+ "X": 771,
+"make": "Saab",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -15750 
+},
+{
+ "X": 772,
+"make": "Saab",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 773,
+"make": "Saab",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -13000 
+},
+{
+ "X": 774,
+"make": "Saab",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 1000 
+},
+{
+ "X": 775,
+"make": "Saturn",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -8000 
+},
+{
+ "X": 776,
+"make": "Saturn",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -1750 
+},
+{
+ "X": 777,
+"make": "Saturn",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -16250 
+},
+{
+ "X": 778,
+"make": "Saturn",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -1750 
+},
+{
+ "X": 779,
+"make": "Saturn",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -14500 
+},
+{
+ "X": 780,
+"make": "Saturn",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 781,
+"make": "Saturn",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -22250 
+},
+{
+ "X": 782,
+"make": "Saturn",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -7250 
+},
+{
+ "X": 783,
+"make": "Saturn",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -23000 
+},
+{
+ "X": 784,
+"make": "Saturn",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -2500 
+},
+{
+ "X": 785,
+"make": "Saturn",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -16500 
+},
+{
+ "X": 786,
+"make": "Saturn",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 787,
+"make": "Saturn",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -18000 
+},
+{
+ "X": 788,
+"make": "Saturn",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 789,
+"make": "Scion",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": 3000 
+},
+{
+ "X": 790,
+"make": "Scion",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": 3250 
+},
+{
+ "X": 791,
+"make": "Scion",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": 2750 
+},
+{
+ "X": 792,
+"make": "Scion",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": 2250 
+},
+{
+ "X": 793,
+"make": "Scion",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": 2500 
+},
+{
+ "X": 794,
+"make": "Scion",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": 2250 
+},
+{
+ "X": 795,
+"make": "Scion",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": 0 
+},
+{
+ "X": 796,
+"make": "Scion",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 797,
+"make": "Scion",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": 1250 
+},
+{
+ "X": 798,
+"make": "Scion",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": 1000 
+},
+{
+ "X": 799,
+"make": "Scion",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": 1250 
+},
+{
+ "X": 800,
+"make": "Scion",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": 1000 
+},
+{
+ "X": 801,
+"make": "Scion",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": 1500 
+},
+{
+ "X": 802,
+"make": "Scion",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 1000 
+},
+{
+ "X": 803,
+"make": "Scion",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": 4750 
+},
+{
+ "X": 804,
+"make": "Scion",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 2000 
+},
+{
+ "X": 805,
+"make": "Scion",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 5000 
+},
+{
+ "X": 806,
+"make": "Scion",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 2000 
+},
+{
+ "X": 807,
+"make": "Scion",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 11250 
+},
+{
+ "X": 808,
+"make": "Scion",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 1250 
+},
+{
+ "X": 809,
+"make": "Scion",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 5250 
+},
+{
+ "X": 810,
+"make": "Scion",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 1250 
+},
+{
+ "X": 811,
+"make": "Scion",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 3750 
+},
+{
+ "X": 812,
+"make": "Scion",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -250 
+},
+{
+ "X": 813,
+"make": "smart",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": 4000 
+},
+{
+ "X": 814,
+"make": "smart",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": 4000 
+},
+{
+ "X": 815,
+"make": "smart",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": 4000 
+},
+{
+ "X": 816,
+"make": "smart",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": 14000 
+},
+{
+ "X": 817,
+"make": "smart",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 4000 
+},
+{
+ "X": 818,
+"make": "smart",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 15000 
+},
+{
+ "X": 819,
+"make": "smart",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 15000 
+},
+{
+ "X": 820,
+"make": "smart",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 15500 
+},
+{
+ "X": 821,
+"make": "Spyker",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -15750 
+},
+{
+ "X": 822,
+"make": "Spyker",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -15750 
+},
+{
+ "X": 823,
+"make": "Spyker",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -21000 
+},
+{
+ "X": 824,
+"make": "Spyker",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -5250 
+},
+{
+ "X": 825,
+"make": "Spyker",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -5250 
+},
+{
+ "X": 826,
+"make": "Spyker",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -5250 
+},
+{
+ "X": 827,
+"make": "Subaru",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -32750 
+},
+{
+ "X": 828,
+"make": "Subaru",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -27500 
+},
+{
+ "X": 829,
+"make": "Subaru",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -37750 
+},
+{
+ "X": 830,
+"make": "Subaru",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -34250 
+},
+{
+ "X": 831,
+"make": "Subaru",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -42500 
+},
+{
+ "X": 832,
+"make": "Subaru",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -33500 
+},
+{
+ "X": 833,
+"make": "Subaru",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -35250 
+},
+{
+ "X": 834,
+"make": "Subaru",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -26500 
+},
+{
+ "X": 835,
+"make": "Subaru",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -27000 
+},
+{
+ "X": 836,
+"make": "Subaru",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -24000 
+},
+{
+ "X": 837,
+"make": "Subaru",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -27250 
+},
+{
+ "X": 838,
+"make": "Subaru",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -21500 
+},
+{
+ "X": 839,
+"make": "Subaru",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -15750 
+},
+{
+ "X": 840,
+"make": "Subaru",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -15000 
+},
+{
+ "X": 841,
+"make": "Subaru",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -10500 
+},
+{
+ "X": 842,
+"make": "Subaru",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -18500 
+},
+{
+ "X": 843,
+"make": "Subaru",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -5500 
+},
+{
+ "X": 844,
+"make": "Subaru",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -14500 
+},
+{
+ "X": 845,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -3000 
+},
+{
+ "X": 846,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -10750 
+},
+{
+ "X": 847,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 2000 
+},
+{
+ "X": 848,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 849,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 8250 
+},
+{
+ "X": 850,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -1250 
+},
+{
+ "X": 851,
+"make": "Suzuki",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -21500 
+},
+{
+ "X": 852,
+"make": "Suzuki",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -18750 
+},
+{
+ "X": 853,
+"make": "Suzuki",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -16500 
+},
+{
+ "X": 854,
+"make": "Suzuki",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -13750 
+},
+{
+ "X": 855,
+"make": "Suzuki",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -15750 
+},
+{
+ "X": 856,
+"make": "Suzuki",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 857,
+"make": "Suzuki",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -13000 
+},
+{
+ "X": 858,
+"make": "Suzuki",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -8250 
+},
+{
+ "X": 859,
+"make": "Suzuki",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -12000 
+},
+{
+ "X": 860,
+"make": "Suzuki",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -7750 
+},
+{
+ "X": 861,
+"make": "Suzuki",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -21250 
+},
+{
+ "X": 862,
+"make": "Suzuki",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -3500 
+},
+{
+ "X": 863,
+"make": "Suzuki",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -12500 
+},
+{
+ "X": 864,
+"make": "Suzuki",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 250 
+},
+{
+ "X": 865,
+"make": "Suzuki",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -7750 
+},
+{
+ "X": 866,
+"make": "Suzuki",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 1500 
+},
+{
+ "X": 867,
+"make": "Suzuki",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -9000 
+},
+{
+ "X": 868,
+"make": "Suzuki",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -250 
+},
+{
+ "X": 869,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 500 
+},
+{
+ "X": 870,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 1000 
+},
+{
+ "X": 871,
+"make": "Tesla",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": 5000 
+},
+{
+ "X": 872,
+"make": "Tesla",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": 15500 
+},
+{
+ "X": 873,
+"make": "Tesla",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 15250 
+},
+{
+ "X": 874,
+"make": "Tesla",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 26500 
+},
+{
+ "X": 875,
+"make": "Toyota",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -84000 
+},
+{
+ "X": 876,
+"make": "Toyota",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -16500 
+},
+{
+ "X": 877,
+"make": "Toyota",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -64000 
+},
+{
+ "X": 878,
+"make": "Toyota",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -14750 
+},
+{
+ "X": 879,
+"make": "Toyota",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -67500 
+},
+{
+ "X": 880,
+"make": "Toyota",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -15750 
+},
+{
+ "X": 881,
+"make": "Toyota",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -81000 
+},
+{
+ "X": 882,
+"make": "Toyota",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -11000 
+},
+{
+ "X": 883,
+"make": "Toyota",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -88250 
+},
+{
+ "X": 884,
+"make": "Toyota",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -11000 
+},
+{
+ "X": 885,
+"make": "Toyota",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -100250 
+},
+{
+ "X": 886,
+"make": "Toyota",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -11250 
+},
+{
+ "X": 887,
+"make": "Toyota",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -83750 
+},
+{
+ "X": 888,
+"make": "Toyota",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -10250 
+},
+{
+ "X": 889,
+"make": "Toyota",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -85500 
+},
+{
+ "X": 890,
+"make": "Toyota",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -9250 
+},
+{
+ "X": 891,
+"make": "Toyota",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -54000 
+},
+{
+ "X": 892,
+"make": "Toyota",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": -8250 
+},
+{
+ "X": 893,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -46000 
+},
+{
+ "X": 894,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": -8000 
+},
+{
+ "X": 895,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -34250 
+},
+{
+ "X": 896,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": -9500 
+},
+{
+ "X": 897,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -29000 
+},
+{
+ "X": 898,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": -5500 
+},
+{
+ "X": 899,
+"make": "Volkswagen",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -69000 
+},
+{
+ "X": 900,
+"make": "Volkswagen",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -31000 
+},
+{
+ "X": 901,
+"make": "Volkswagen",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -55000 
+},
+{
+ "X": 902,
+"make": "Volkswagen",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -14250 
+},
+{
+ "X": 903,
+"make": "Volkswagen",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -43500 
+},
+{
+ "X": 904,
+"make": "Volkswagen",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -1750 
+},
+{
+ "X": 905,
+"make": "Volkswagen",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -44250 
+},
+{
+ "X": 906,
+"make": "Volkswagen",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -9000 
+},
+{
+ "X": 907,
+"make": "Volkswagen",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -42000 
+},
+{
+ "X": 908,
+"make": "Volkswagen",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -7250 
+},
+{
+ "X": 909,
+"make": "Volkswagen",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -37250 
+},
+{
+ "X": 910,
+"make": "Volkswagen",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -3250 
+},
+{
+ "X": 911,
+"make": "Volkswagen",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -22000 
+},
+{
+ "X": 912,
+"make": "Volkswagen",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": 500 
+},
+{
+ "X": 913,
+"make": "Volkswagen",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -9750 
+},
+{
+ "X": 914,
+"make": "Volkswagen",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": 4000 
+},
+{
+ "X": 915,
+"make": "Volkswagen",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -10000 
+},
+{
+ "X": 916,
+"make": "Volkswagen",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 3500 
+},
+{
+ "X": 917,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -7750 
+},
+{
+ "X": 918,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 6250 
+},
+{
+ "X": 919,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": 0 
+},
+{
+ "X": 920,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"youSaveSpend": 12750 
+},
+{
+ "X": 921,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": 12000 
+},
+{
+ "X": 922,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Manual",
+"youSaveSpend": 19750 
+},
+{
+ "X": 923,
+"make": "Volvo",
+"year": 2004,
+"transtype": "Automatic",
+"youSaveSpend": -74750 
+},
+{
+ "X": 924,
+"make": "Volvo",
+"year": 2004,
+"transtype": "Manual",
+"youSaveSpend": -20500 
+},
+{
+ "X": 925,
+"make": "Volvo",
+"year": 2005,
+"transtype": "Automatic",
+"youSaveSpend": -79750 
+},
+{
+ "X": 926,
+"make": "Volvo",
+"year": 2005,
+"transtype": "Manual",
+"youSaveSpend": -31750 
+},
+{
+ "X": 927,
+"make": "Volvo",
+"year": 2006,
+"transtype": "Automatic",
+"youSaveSpend": -80750 
+},
+{
+ "X": 928,
+"make": "Volvo",
+"year": 2006,
+"transtype": "Manual",
+"youSaveSpend": -33000 
+},
+{
+ "X": 929,
+"make": "Volvo",
+"year": 2007,
+"transtype": "Automatic",
+"youSaveSpend": -92500 
+},
+{
+ "X": 930,
+"make": "Volvo",
+"year": 2007,
+"transtype": "Manual",
+"youSaveSpend": -31500 
+},
+{
+ "X": 931,
+"make": "Volvo",
+"year": 2008,
+"transtype": "Automatic",
+"youSaveSpend": -74750 
+},
+{
+ "X": 932,
+"make": "Volvo",
+"year": 2008,
+"transtype": "Manual",
+"youSaveSpend": -22000 
+},
+{
+ "X": 933,
+"make": "Volvo",
+"year": 2009,
+"transtype": "Automatic",
+"youSaveSpend": -42250 
+},
+{
+ "X": 934,
+"make": "Volvo",
+"year": 2009,
+"transtype": "Manual",
+"youSaveSpend": -7750 
+},
+{
+ "X": 935,
+"make": "Volvo",
+"year": 2010,
+"transtype": "Automatic",
+"youSaveSpend": -35000 
+},
+{
+ "X": 936,
+"make": "Volvo",
+"year": 2010,
+"transtype": "Manual",
+"youSaveSpend": -2000 
+},
+{
+ "X": 937,
+"make": "Volvo",
+"year": 2011,
+"transtype": "Automatic",
+"youSaveSpend": -24500 
+},
+{
+ "X": 938,
+"make": "Volvo",
+"year": 2011,
+"transtype": "Manual",
+"youSaveSpend": -500 
+},
+{
+ "X": 939,
+"make": "Volvo",
+"year": 2012,
+"transtype": "Automatic",
+"youSaveSpend": -19500 
+},
+{
+ "X": 940,
+"make": "Volvo",
+"year": 2012,
+"transtype": "Manual",
+"youSaveSpend": 0 
+},
+{
+ "X": 941,
+"make": "Volvo",
+"year": 2013,
+"transtype": "Automatic",
+"youSaveSpend": -19000 
+},
+{
+ "X": 942,
+"make": "Volvo",
+"year": 2013,
+"transtype": "Manual",
+"youSaveSpend": 0 
+},
+{
+ "X": 943,
+"make": "Volvo",
+"year": 2014,
+"transtype": "Automatic",
+"youSaveSpend": -17750 
+},
+{
+ "X": 944,
+"make": "Volvo",
+"year": 2015,
+"transtype": "Automatic",
+"youSaveSpend": -7000 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .margin({
+ "left":    100 
+})
+          
+        
+
+        
+        
+        chart.yAxis
+  .tickFormat( function(d) {return '' + d3.format(',.')(d)} )
+  .axisLabel("Vehicle (+)Spend/(-)Save")
+  .width(    80)
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+---
+
+## Interactive Fuel Economy Score by Fuel Type by year for Automatic
+
+
+<div id = 'sctchart1' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawsctchart1()
+    });
+    function drawsctchart1(){  
+      var opts = {
+ "dom": "sctchart1",
+"width":    600,
+"height":    400,
+"x": "year",
+"y": "feScore",
+"group": "atvType",
+"type": "scatterChart",
+"id": "sctchart1" 
+},
+        data = [
+ {
+ "X": 1,
+"make": "Acura",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 2,
+"make": "Acura",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 3,
+"make": "Acura",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 4,
+"make": "Acura",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 5,
+"make": "Acura",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 8,
+"make": "Acura",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 9,
+"make": "Acura",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 10,
+"make": "Acura",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 11,
+"make": "Acura",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 12,
+"make": "Acura",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 15,
+"make": "Acura",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 16,
+"make": "Acura",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 17,
+"make": "Acura",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 19,
+"make": "Aston Martin",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 21,
+"make": "Aston Martin",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 22,
+"make": "Aston Martin",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 24,
+"make": "Aston Martin",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 25,
+"make": "Aston Martin",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 26,
+"make": "Aston Martin",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 28,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 29,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 9 
+},
+{
+ "X": 30,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 30 
+},
+{
+ "X": 31,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 32,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 33,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 34,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 48 
+},
+{
+ "X": 35,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 36,
+"make": "Audi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 40,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 41,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 28 
+},
+{
+ "X": 42,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 30 
+},
+{
+ "X": 43,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 44,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 45,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 46,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 47,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 48,
+"make": "Audi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 52,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 53,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 28 
+},
+{
+ "X": 54,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 8 
+},
+{
+ "X": 55,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 56,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 24 
+},
+{
+ "X": 57,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 58,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 59,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 80 
+},
+{
+ "X": 60,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 61,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 62,
+"make": "Audi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 6 
+},
+{
+ "X": 66,
+"make": "Bentley",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 67,
+"make": "Bentley",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 68,
+"make": "Bentley",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 69,
+"make": "Bentley",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 70,
+"make": "Bentley",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 71,
+"make": "Bentley",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 1 
+},
+{
+ "X": 72,
+"make": "Bentley",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 73,
+"make": "Bentley",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 74,
+"make": "Bentley",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 9 
+},
+{
+ "X": 75,
+"make": "Bentley",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 1 
+},
+{
+ "X": 76,
+"make": "Bentley",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 77,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 78,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 79,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 27 
+},
+{
+ "X": 80,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 92 
+},
+{
+ "X": 81,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 85 
+},
+{
+ "X": 82,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 83,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 77 
+},
+{
+ "X": 84,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 6 
+},
+{
+ "X": 85,
+"make": "BMW",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 91,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 7 
+},
+{
+ "X": 92,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 16 
+},
+{
+ "X": 93,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 27 
+},
+{
+ "X": 94,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 95,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 96,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 97,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 52 
+},
+{
+ "X": 98,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 85 
+},
+{
+ "X": 99,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 102 
+},
+{
+ "X": 100,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 105 
+},
+{
+ "X": 101,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 6 
+},
+{
+ "X": 102,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 103,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 9 
+},
+{
+ "X": 104,
+"make": "BMW",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 109,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 110,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 28 
+},
+{
+ "X": 111,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 16 
+},
+{
+ "X": 112,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 9 
+},
+{
+ "X": 113,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 114,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 115,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 76 
+},
+{
+ "X": 116,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 125 
+},
+{
+ "X": 117,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 162 
+},
+{
+ "X": 118,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 77 
+},
+{
+ "X": 119,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 12 
+},
+{
+ "X": 120,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 121,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 9 
+},
+{
+ "X": 122,
+"make": "BMW",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 127,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 128,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 129,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 130,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 131,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 132,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 133,
+"make": "Buick",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 16 
+},
+{
+ "X": 137,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 138,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 139,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 140,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 141,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 142,
+"make": "Buick",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 144,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 145,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 146,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 147,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 148,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 149,
+"make": "Buick",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 151,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 152,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 9 
+},
+{
+ "X": 153,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 154,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 155,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 156,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 157,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 60 
+},
+{
+ "X": 158,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 159,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 160,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 10 
+},
+{
+ "X": 164,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 165,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 166,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 167,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 168,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 169,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 65 
+},
+{
+ "X": 170,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 171,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 172,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 175,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 176,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 177,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 44 
+},
+{
+ "X": 178,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 179,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 180,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 183,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 2 
+},
+{
+ "X": 184,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 185,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 9 
+},
+{
+ "X": 186,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 48 
+},
+{
+ "X": 187,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 188,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 189,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 190,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 191,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 192,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 193,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 194,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 195,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 196,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 197,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 198,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 199,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 200,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 206,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 8 
+},
+{
+ "X": 207,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 208,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 209,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 210,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 211,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 24 
+},
+{
+ "X": 212,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 213,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 214,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 215,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 216,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 217,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 218,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 219,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 220,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 221,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 49 
+},
+{
+ "X": 222,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 223,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 224,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 231,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Bifuel (CNG)",
+"feScore": 5 
+},
+{
+ "X": 232,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 8 
+},
+{
+ "X": 233,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 234,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 235,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 44 
+},
+{
+ "X": 236,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 25 
+},
+{
+ "X": 237,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 238,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 239,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 240,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 241,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 60 
+},
+{
+ "X": 242,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 50 
+},
+{
+ "X": 243,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 244,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 63 
+},
+{
+ "X": 245,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 246,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 252,
+"make": "Chrysler",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 253,
+"make": "Chrysler",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 254,
+"make": "Chrysler",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 255,
+"make": "Chrysler",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 256,
+"make": "Chrysler",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 257,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 258,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 259,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 260,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 261,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 262,
+"make": "Chrysler",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 263,
+"make": "Chrysler",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 25 
+},
+{
+ "X": 264,
+"make": "Chrysler",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 265,
+"make": "Chrysler",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 266,
+"make": "Chrysler",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 267,
+"make": "Chrysler",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 268,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 269,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 25 
+},
+{
+ "X": 270,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 271,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 272,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 273,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 274,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 275,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 276,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 277,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 281,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 282,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 25 
+},
+{
+ "X": 283,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 284,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 285,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 286,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 287,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 288,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 289,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 290,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 295,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 296,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 297,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 298,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 299,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 300,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 301,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 302,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 303,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 308,
+"make": "Ferrari",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 309,
+"make": "Ferrari",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 310,
+"make": "Ferrari",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 311,
+"make": "Ferrari",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 312,
+"make": "Ferrari",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 313,
+"make": "Ferrari",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 2 
+},
+{
+ "X": 314,
+"make": "Ferrari",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 315,
+"make": "Ferrari",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 316,
+"make": "Ferrari",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 317,
+"make": "Ferrari",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 318,
+"make": "Fiat",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 319,
+"make": "Fiat",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 322,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 323,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 324,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 327,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 328,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 329,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 332,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 333,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 334,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 18 
+},
+{
+ "X": 335,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 28 
+},
+{
+ "X": 336,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 337,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 338,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 24 
+},
+{
+ "X": 339,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 340,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 341,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 342,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 343,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 45 
+},
+{
+ "X": 344,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 72 
+},
+{
+ "X": 345,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 346,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 347,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 348,
+"make": "Ford",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 20 
+},
+{
+ "X": 354,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 355,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 356,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 357,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 15 
+},
+{
+ "X": 358,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 359,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 360,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 361,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 24 
+},
+{
+ "X": 362,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 363,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 364,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 365,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 366,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 367,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 96 
+},
+{
+ "X": 368,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 369,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 370,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 371,
+"make": "Ford",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 20 
+},
+{
+ "X": 378,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 379,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 380,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 16 
+},
+{
+ "X": 381,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 20 
+},
+{
+ "X": 382,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 383,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 384,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 385,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 386,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 90 
+},
+{
+ "X": 387,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 96 
+},
+{
+ "X": 388,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 389,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 390,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 391,
+"make": "Ford",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 20 
+},
+{
+ "X": 398,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 2 
+},
+{
+ "X": 399,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 24 
+},
+{
+ "X": 400,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 18 
+},
+{
+ "X": 401,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 32 
+},
+{
+ "X": 402,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 403,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 404,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 405,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 406,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 407,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 408,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 409,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 410,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 411,
+"make": "GMC",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 25 
+},
+{
+ "X": 412,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 413,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 16 
+},
+{
+ "X": 414,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 18 
+},
+{
+ "X": 415,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 16 
+},
+{
+ "X": 416,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 417,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 418,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 419,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 420,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 421,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 422,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 423,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 424,
+"make": "GMC",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 425,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 426,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 44 
+},
+{
+ "X": 427,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 428,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 429,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 430,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 431,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 72 
+},
+{
+ "X": 432,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 433,
+"make": "GMC",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 435,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "CNG",
+"feScore": 8 
+},
+{
+ "X": 436,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 437,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 438,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 439,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 440,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 441,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 48 
+},
+{
+ "X": 442,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 443,
+"make": "Honda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 30 
+},
+{
+ "X": 449,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "CNG",
+"feScore": 8 
+},
+{
+ "X": 450,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 451,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 452,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 453,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 454,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 455,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 456,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 457,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 27 
+},
+{
+ "X": 458,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 459,
+"make": "Honda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 465,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "CNG",
+"feScore": 8 
+},
+{
+ "X": 466,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 25 
+},
+{
+ "X": 467,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 468,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 469,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 48 
+},
+{
+ "X": 470,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 471,
+"make": "Honda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 477,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 478,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 479,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 480,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 481,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 48 
+},
+{
+ "X": 482,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 487,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 488,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 45 
+},
+{
+ "X": 489,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 490,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 491,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 492,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 497,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 498,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 65 
+},
+{
+ "X": 499,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 500,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 56 
+},
+{
+ "X": 501,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 502,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 506,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 507,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 508,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 509,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 512,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 513,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 514,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 515,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 516,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 21 
+},
+{
+ "X": 517,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 32 
+},
+{
+ "X": 520,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 521,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 522,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 75 
+},
+{
+ "X": 523,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 12 
+},
+{
+ "X": 524,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 21 
+},
+{
+ "X": 525,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 16 
+},
+{
+ "X": 528,
+"make": "Jaguar",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 16 
+},
+{
+ "X": 529,
+"make": "Jaguar",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 44 
+},
+{
+ "X": 530,
+"make": "Jaguar",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 531,
+"make": "Jaguar",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 532,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 533,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 15 
+},
+{
+ "X": 534,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 535,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 536,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 537,
+"make": "Jaguar",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 538,
+"make": "Jaguar",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 539,
+"make": "Jaguar",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 540,
+"make": "Jaguar",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 44 
+},
+{
+ "X": 541,
+"make": "Jaguar",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 542,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 543,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 544,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 545,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 546,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 547,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 551,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 12 
+},
+{
+ "X": 552,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 553,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 554,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 555,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 556,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 557,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 558,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 66 
+},
+{
+ "X": 562,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 12 
+},
+{
+ "X": 563,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 564,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 565,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 18 
+},
+{
+ "X": 566,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 567,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 568,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 569,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 573,
+"make": "Kia",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 574,
+"make": "Kia",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 575,
+"make": "Kia",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 49 
+},
+{
+ "X": 576,
+"make": "Kia",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 577,
+"make": "Kia",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 582,
+"make": "Kia",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 583,
+"make": "Kia",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 584,
+"make": "Kia",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 63 
+},
+{
+ "X": 585,
+"make": "Kia",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 586,
+"make": "Kia",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 591,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 592,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 593,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 65 
+},
+{
+ "X": 594,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 595,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 596,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 597,
+"make": "Kia",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 601,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 1 
+},
+{
+ "X": 602,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 603,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 606,
+"make": "Lamborghini",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 607,
+"make": "Lamborghini",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 609,
+"make": "Lamborghini",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 610,
+"make": "Lamborghini",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 611,
+"make": "Land Rover",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 612,
+"make": "Land Rover",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 613,
+"make": "Land Rover",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 614,
+"make": "Land Rover",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 615,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 9 
+},
+{
+ "X": 616,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 12 
+},
+{
+ "X": 617,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 618,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 619,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 620,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 621,
+"make": "Land Rover",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 622,
+"make": "Land Rover",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 9 
+},
+{
+ "X": 623,
+"make": "Land Rover",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 624,
+"make": "Land Rover",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 625,
+"make": "Land Rover",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 626,
+"make": "Land Rover",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 627,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 628,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 629,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 630,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 631,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 632,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 24 
+},
+{
+ "X": 633,
+"make": "Lexus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 634,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 635,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 636,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 637,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 638,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 639,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 640,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 641,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 16 
+},
+{
+ "X": 642,
+"make": "Lexus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 643,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 644,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 645,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 646,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 647,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 648,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 649,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 24 
+},
+{
+ "X": 650,
+"make": "Lexus",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 18 
+},
+{
+ "X": 651,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 652,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 653,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 654,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 655,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 656,
+"make": "Lincoln",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 657,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 2 
+},
+{
+ "X": 658,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 659,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 660,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 661,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 662,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 663,
+"make": "Lincoln",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 664,
+"make": "Lincoln",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 665,
+"make": "Lincoln",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 666,
+"make": "Lincoln",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 55 
+},
+{
+ "X": 667,
+"make": "Lincoln",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 668,
+"make": "Lincoln",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 669,
+"make": "Lotus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 670,
+"make": "Lotus",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 672,
+"make": "Lotus",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 674,
+"make": "Maserati",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 675,
+"make": "Maserati",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 676,
+"make": "Maserati",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 677,
+"make": "Maserati",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 678,
+"make": "Maserati",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 679,
+"make": "Maserati",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 680,
+"make": "Maserati",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 681,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 682,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 683,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 684,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 685,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 690,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 691,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 692,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 693,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 72 
+},
+{
+ "X": 697,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 698,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 699,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 700,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 701,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 56 
+},
+{
+ "X": 705,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 706,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 18 
+},
+{
+ "X": 707,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 7 
+},
+{
+ "X": 708,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 25 
+},
+{
+ "X": 709,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 18 
+},
+{
+ "X": 710,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 711,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 33 
+},
+{
+ "X": 712,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 52 
+},
+{
+ "X": 713,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 95 
+},
+{
+ "X": 714,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 60 
+},
+{
+ "X": 715,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 716,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 717,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 719,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 720,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 721,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 7 
+},
+{
+ "X": 722,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 16 
+},
+{
+ "X": 723,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 724,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 725,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 726,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 36 
+},
+{
+ "X": 727,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 728,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 729,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 730,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 64 
+},
+{
+ "X": 731,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 90 
+},
+{
+ "X": 732,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 78 
+},
+{
+ "X": 733,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 734,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 735,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 737,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 738,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 739,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 7 
+},
+{
+ "X": 740,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 16 
+},
+{
+ "X": 741,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 742,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 743,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 744,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 14 
+},
+{
+ "X": 745,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 746,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 747,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 748,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 52 
+},
+{
+ "X": 749,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 135 
+},
+{
+ "X": 750,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 54 
+},
+{
+ "X": 751,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 752,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 6 
+},
+{
+ "X": 754,
+"make": "MINI",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 56 
+},
+{
+ "X": 755,
+"make": "MINI",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 128 
+},
+{
+ "X": 758,
+"make": "MINI",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 56 
+},
+{
+ "X": 759,
+"make": "MINI",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 120 
+},
+{
+ "X": 762,
+"make": "MINI",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 763,
+"make": "MINI",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 105 
+},
+{
+ "X": 764,
+"make": "MINI",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 768,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 769,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 770,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 771,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 772,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 773,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 776,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 777,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 778,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 779,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 780,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 49 
+},
+{
+ "X": 781,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 785,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 786,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 787,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 788,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 789,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 794,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 795,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 796,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 797,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 798,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 799,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 800,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 801,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 802,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 803,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 804,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 27 
+},
+{
+ "X": 809,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 810,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 811,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 812,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 813,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 814,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 815,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 816,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 817,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 818,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 819,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 825,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 826,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 827,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 828,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 829,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 830,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 831,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 832,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 833,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 834,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 835,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 12 
+},
+{
+ "X": 839,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 840,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 52 
+},
+{
+ "X": 841,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 842,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 843,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 844,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 845,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 6 
+},
+{
+ "X": 849,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 850,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 851,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 852,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 85 
+},
+{
+ "X": 853,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 854,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 855,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 856,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 8 
+},
+{
+ "X": 860,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 861,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 862,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 110 
+},
+{
+ "X": 863,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 864,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 14 
+},
+{
+ "X": 865,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 8 
+},
+{
+ "X": 868,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 869,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 870,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 871,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 872,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 873,
+"make": "Ram",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 874,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 875,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 876,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 877,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 878,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 879,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 880,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 881,
+"make": "Ram",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 882,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 10 
+},
+{
+ "X": 883,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 884,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 885,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 10 
+},
+{
+ "X": 886,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 887,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 888,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 889,
+"make": "Ram",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 890,
+"make": "Rolls-Royce",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 891,
+"make": "Rolls-Royce",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 892,
+"make": "Rolls-Royce",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 893,
+"make": "Rolls-Royce",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 894,
+"make": "Rolls-Royce",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 895,
+"make": "Roush Performance",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 897,
+"make": "Roush Performance",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 898,
+"make": "Roush Performance",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 900,
+"make": "Scion",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 901,
+"make": "Scion",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 902,
+"make": "Scion",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 903,
+"make": "Scion",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 904,
+"make": "Scion",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 908,
+"make": "Scion",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 909,
+"make": "Scion",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 910,
+"make": "Scion",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 913,
+"make": "Scion",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 914,
+"make": "Scion",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 915,
+"make": "Scion",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 917,
+"make": "smart",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 20 
+},
+{
+ "X": 918,
+"make": "smart",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 919,
+"make": "smart",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 20 
+},
+{
+ "X": 920,
+"make": "smart",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 921,
+"make": "smart",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 20 
+},
+{
+ "X": 922,
+"make": "smart",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 923,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 924,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 925,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 926,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 927,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 932,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 933,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 934,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 935,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 936,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 937,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 942,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 943,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 944,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 945,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 946,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 950,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 951,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 952,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 956,
+"make": "Tesla",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 30 
+},
+{
+ "X": 957,
+"make": "Tesla",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 30 
+},
+{
+ "X": 958,
+"make": "Tesla",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 50 
+},
+{
+ "X": 959,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 960,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 2 
+},
+{
+ "X": 961,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 962,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 963,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 964,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 48 
+},
+{
+ "X": 965,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 45 
+},
+{
+ "X": 966,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 967,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 968,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 969,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 7 
+},
+{
+ "X": 970,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 60 
+},
+{
+ "X": 971,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 976,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 977,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 4 
+},
+{
+ "X": 978,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 979,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 980,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 981,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 982,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 983,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 984,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 985,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 986,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 987,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 36 
+},
+{
+ "X": 988,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 989,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 994,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 2 
+},
+{
+ "X": 995,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 3 
+},
+{
+ "X": 996,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 997,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 998,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 999,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 45 
+},
+{
+ "X": 1000,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 1001,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 1002,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 48 
+},
+{
+ "X": 1003,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 14 
+},
+{
+ "X": 1004,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 36 
+},
+{
+ "X": 1005,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 20 
+},
+{
+ "X": 1006,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Plug-in Hybrid",
+"feScore": 10 
+},
+{
+ "X": 1010,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 1011,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 24 
+},
+{
+ "X": 1012,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 27 
+},
+{
+ "X": 1013,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 1014,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 1015,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 1016,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 66 
+},
+{
+ "X": 1017,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 1018,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 1019,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 10 
+},
+{
+ "X": 1025,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 6 
+},
+{
+ "X": 1026,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 48 
+},
+{
+ "X": 1027,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "FFV",
+"feScore": 5 
+},
+{
+ "X": 1028,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 1029,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 1030,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 60 
+},
+{
+ "X": 1031,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 63 
+},
+{
+ "X": 1032,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 1033,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 10 
+},
+{
+ "X": 1040,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 5 
+},
+{
+ "X": 1041,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Diesel",
+"feScore": 48 
+},
+{
+ "X": 1042,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "EV",
+"feScore": 10 
+},
+{
+ "X": 1043,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 1044,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 20 
+},
+{
+ "X": 1045,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 1046,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 56 
+},
+{
+ "X": 1047,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 5 
+},
+{
+ "X": 1048,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Hybrid",
+"feScore": 10 
+},
+{
+ "X": 1052,
+"make": "Volvo",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 1053,
+"make": "Volvo",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 45 
+},
+{
+ "X": 1054,
+"make": "Volvo",
+"year": 2013,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 1056,
+"make": "Volvo",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 1057,
+"make": "Volvo",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 1058,
+"make": "Volvo",
+"year": 2014,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 1059,
+"make": "Volvo",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 65 
+},
+{
+ "X": 1060,
+"make": "Volvo",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 1061,
+"make": "Volvo",
+"year": 2015,
+"transtype": "Automatic",
+"atvType": "Gasoline",
+"feScore": 49 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .size( function(d){return d.feScore} )
+  .margin({
+ "right":    100 
+})
+          
+        chart.xAxis
+  .axisLabel("Year")
+
+        
+        
+        chart.yAxis
+  .axisLabel("Fuel Economy Score Automatic")
+  .tickFormat( function(d) {return '' + d3.format(',.')(d)} )
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+---
+
+## Interactive Fuel Economy Score by Fuel Type by year for Manual
+
+
+<div id = 'sctchart2' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawsctchart2()
+    });
+    function drawsctchart2(){  
+      var opts = {
+ "dom": "sctchart2",
+"width":    600,
+"height":    400,
+"x": "year",
+"y": "feScore",
+"group": "atvType",
+"type": "scatterChart",
+"id": "sctchart2" 
+},
+        data = [
+ {
+ "X": 6,
+"make": "Acura",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 7,
+"make": "Acura",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 13,
+"make": "Acura",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 14,
+"make": "Acura",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 18,
+"make": "Acura",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 20,
+"make": "Aston Martin",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 23,
+"make": "Aston Martin",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 27,
+"make": "Aston Martin",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 37,
+"make": "Audi",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 38,
+"make": "Audi",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 39,
+"make": "Audi",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 49,
+"make": "Audi",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 50,
+"make": "Audi",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 51,
+"make": "Audi",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 63,
+"make": "Audi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 64,
+"make": "Audi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 65,
+"make": "Audi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 86,
+"make": "BMW",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 87,
+"make": "BMW",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 88,
+"make": "BMW",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 50 
+},
+{
+ "X": 89,
+"make": "BMW",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 90,
+"make": "BMW",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 105,
+"make": "BMW",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 106,
+"make": "BMW",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 107,
+"make": "BMW",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 108,
+"make": "BMW",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 123,
+"make": "BMW",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 124,
+"make": "BMW",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 125,
+"make": "BMW",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 126,
+"make": "BMW",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 134,
+"make": "Buick",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "FFV",
+"feScore": 6 
+},
+{
+ "X": 135,
+"make": "Buick",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 136,
+"make": "Buick",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 143,
+"make": "Buick",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 150,
+"make": "Buick",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 161,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 162,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 163,
+"make": "Cadillac",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 173,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 174,
+"make": "Cadillac",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 181,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 182,
+"make": "Cadillac",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 201,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 202,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 203,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 204,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 64 
+},
+{
+ "X": 205,
+"make": "Chevrolet",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 225,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 226,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 227,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 228,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 229,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 230,
+"make": "Chevrolet",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 72 
+},
+{
+ "X": 247,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 248,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 249,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 250,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 251,
+"make": "Chevrolet",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 278,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 279,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 280,
+"make": "Dodge",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 291,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 292,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 293,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 294,
+"make": "Dodge",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 304,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 305,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 306,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 307,
+"make": "Dodge",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 320,
+"make": "Fiat",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 321,
+"make": "Fiat",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 325,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 326,
+"make": "Fiat",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 330,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 331,
+"make": "Fiat",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 349,
+"make": "Ford",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 350,
+"make": "Ford",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 351,
+"make": "Ford",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 352,
+"make": "Ford",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 353,
+"make": "Ford",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 372,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "FFV",
+"feScore": 8 
+},
+{
+ "X": 373,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 374,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 375,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 376,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 377,
+"make": "Ford",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 392,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "FFV",
+"feScore": 7 
+},
+{
+ "X": 393,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 394,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 395,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 396,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 397,
+"make": "Ford",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 434,
+"make": "GMC",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 444,
+"make": "Honda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 445,
+"make": "Honda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 446,
+"make": "Honda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 447,
+"make": "Honda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 448,
+"make": "Honda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Hybrid",
+"feScore": 9 
+},
+{
+ "X": 460,
+"make": "Honda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 461,
+"make": "Honda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 462,
+"make": "Honda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 463,
+"make": "Honda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 464,
+"make": "Honda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 472,
+"make": "Honda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 473,
+"make": "Honda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 474,
+"make": "Honda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 475,
+"make": "Honda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 476,
+"make": "Honda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Hybrid",
+"feScore": 8 
+},
+{
+ "X": 483,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 484,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 485,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 486,
+"make": "Hyundai",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 493,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 494,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 495,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 496,
+"make": "Hyundai",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 503,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 504,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 505,
+"make": "Hyundai",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 510,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 511,
+"make": "Infiniti",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 518,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 519,
+"make": "Infiniti",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 526,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 527,
+"make": "Infiniti",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 548,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 549,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 550,
+"make": "Jeep",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 559,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 560,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 561,
+"make": "Jeep",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 570,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 571,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 36 
+},
+{
+ "X": 572,
+"make": "Jeep",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 578,
+"make": "Kia",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 579,
+"make": "Kia",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 580,
+"make": "Kia",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 581,
+"make": "Kia",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 587,
+"make": "Kia",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 588,
+"make": "Kia",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 589,
+"make": "Kia",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 35 
+},
+{
+ "X": 590,
+"make": "Kia",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 598,
+"make": "Kia",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 599,
+"make": "Kia",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 600,
+"make": "Kia",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 604,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 2 
+},
+{
+ "X": 605,
+"make": "Lamborghini",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 608,
+"make": "Lamborghini",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 671,
+"make": "Lotus",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 673,
+"make": "Lotus",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 686,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 687,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 688,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 689,
+"make": "Mazda",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 32 
+},
+{
+ "X": 694,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 695,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 696,
+"make": "Mazda",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 702,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 703,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 704,
+"make": "Mazda",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 718,
+"make": "Mercedes-Benz",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 736,
+"make": "Mercedes-Benz",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 753,
+"make": "Mercedes-Benz",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 756,
+"make": "MINI",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 757,
+"make": "MINI",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 168 
+},
+{
+ "X": 760,
+"make": "MINI",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 49 
+},
+{
+ "X": 761,
+"make": "MINI",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 128 
+},
+{
+ "X": 765,
+"make": "MINI",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 766,
+"make": "MINI",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 126 
+},
+{
+ "X": 767,
+"make": "MINI",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 774,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 775,
+"make": "Mitsubishi",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 782,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 783,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 784,
+"make": "Mitsubishi",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 790,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 791,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 792,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 793,
+"make": "Mitsubishi",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 9 
+},
+{
+ "X": 805,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 806,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 807,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 808,
+"make": "Nissan",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 820,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 821,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 822,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 823,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 824,
+"make": "Nissan",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 836,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 837,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 15 
+},
+{
+ "X": 838,
+"make": "Nissan",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 28 
+},
+{
+ "X": 846,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 847,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 40 
+},
+{
+ "X": 848,
+"make": "Porsche",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 857,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 858,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 50 
+},
+{
+ "X": 859,
+"make": "Porsche",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 866,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 90 
+},
+{
+ "X": 867,
+"make": "Porsche",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 896,
+"make": "Roush Performance",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 899,
+"make": "Roush Performance",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 905,
+"make": "Scion",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 906,
+"make": "Scion",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 7 
+},
+{
+ "X": 907,
+"make": "Scion",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 911,
+"make": "Scion",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 912,
+"make": "Scion",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 916,
+"make": "Scion",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 928,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 929,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 930,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 931,
+"make": "Subaru",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 938,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 939,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 940,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 941,
+"make": "Subaru",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 947,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 4 
+},
+{
+ "X": 948,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 949,
+"make": "Subaru",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 21 
+},
+{
+ "X": 953,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 954,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 955,
+"make": "Suzuki",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 14 
+},
+{
+ "X": 972,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 3 
+},
+{
+ "X": 973,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 974,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 975,
+"make": "Toyota",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 990,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 991,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 992,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+},
+{
+ "X": 993,
+"make": "Toyota",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 1007,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 12 
+},
+{
+ "X": 1008,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 1009,
+"make": "Toyota",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 16 
+},
+{
+ "X": 1020,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Diesel",
+"feScore": 16 
+},
+{
+ "X": 1021,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Diesel",
+"feScore": 36 
+},
+{
+ "X": 1022,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 10 
+},
+{
+ "X": 1023,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 30 
+},
+{
+ "X": 1024,
+"make": "Volkswagen",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 42 
+},
+{
+ "X": 1034,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Diesel",
+"feScore": 40 
+},
+{
+ "X": 1035,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Diesel",
+"feScore": 9 
+},
+{
+ "X": 1036,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 5 
+},
+{
+ "X": 1037,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 18 
+},
+{
+ "X": 1038,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 56 
+},
+{
+ "X": 1039,
+"make": "Volkswagen",
+"year": 2014,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 8 
+},
+{
+ "X": 1049,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Diesel",
+"feScore": 48 
+},
+{
+ "X": 1050,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 24 
+},
+{
+ "X": 1051,
+"make": "Volkswagen",
+"year": 2015,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 49 
+},
+{
+ "X": 1055,
+"make": "Volvo",
+"year": 2013,
+"transtype": "Manual",
+"atvType": "Gasoline",
+"feScore": 6 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .size( function(d){return d.feScore} )
+  .margin({
+ "right":    100 
+})
+          
+        chart.xAxis
+  .axisLabel("Year")
+
+        
+        
+        chart.yAxis
+  .axisLabel("Fuel Economy Score Automatic")
+  .tickFormat( function(d) {return '' + d3.format(',.')(d)} )
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>

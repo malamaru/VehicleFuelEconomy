@@ -1,0 +1,100 @@
+---
+title       : Vehicle Fuel Economy Analysis 
+subtitle    : Interactive analysis of Vehicle Fuel Economy
+author      : Mala
+job         : IT Consultant
+framework   : io2012          # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js    # {highlight.js, prettify, highlight}
+hitheme     : solarized_light # tomorrow 
+widgets     : [polycharts, bootstrap, shiny, interactive]
+mode        : selfcontained   # {standalone, selfcontained,draft}
+ext_widgets : {rCharts: [libraries/nvd3]}
+knit        : slidify::knit2slides
+---
+
+### Vehicle Fuel Economy Analysis
+Vehicle Fuel Economy Analysis applicationapp provides an interactive analysis of vehicles fuel combined consumption (city and highway) and annual fuel cost is based on 15,000 miles, 55% city driving, and the price of fuel used by the vehicle based on year make,model and Transmission type(Automatic/Manual).
+
+The raw data for this analysis is downloaded from U.S Department of Energy (Office Of Transportation & Air Quality) http://www.fueleconomy.gov/
+
+The data is spanned from year 1984 to 2015.Only subset of data is used in this application.
+
+### Vehicle Fuel Economy Analysis Plots 
+In Vehicle Fuel Economy Analysis, the following analaysis are done for different car models (Audi,BMW...) considering their transmission type, also the fuel types they use.
+- Vehicle you (+)Spend/(-)Save (Shown in this slidify)
+- Miles Per Gallons(City & Highway) 
+- Fuel Economy Score by Fuel Type and Make (Shown in this slidify)
+- Annual petroleum consumption in barrels
+
+---
+
+
+```{r, echo = FALSE, cache = TRUE}
+
+
+#Read Data for You Spend Save data
+vehicleSumData<-read.csv("VchSumData.csv")
+#Read Data for Fe Score 
+vehicleFeScore<-read.csv("VchfeScore.csv")
+
+suppressMessages(library(rCharts))
+suppressMessages(library(slidify))
+
+
+
+
+```
+
+## Interactive Vehicle (+)Spend/(-)Save per year
+
+```{r echo = F, results = 'asis'}
+
+stkPlot<-nPlot(youSaveSpend ~ year, group = 'transtype', 
+                 data = vehicleSumData, 
+                 type = 'multiBarChart', dom = 'stkchart', width = 600) 
+
+        stkPlot$yAxis(tickFormat = "#! function(d) {return '' + d3.format(',.')(d)} !#")
+        stkPlot$chart(margin = list(left = 100))
+        stkPlot$yAxis( axisLabel = "Vehicle (+)Spend/(-)Save", width = 80)
+        
+stkPlot$print('stkchart')
+```
+
+---
+
+## Interactive Fuel Economy Score by Fuel Type by year for Automatic
+
+```{r echo = F, results = 'asis'}
+AutovehFeScore<-subset(vehicleFeScore,transtype=='Automatic')
+
+sccplot1 <- nPlot(feScore ~ year, group = 'atvType', data = AutovehFeScore, 
+                  type='scatterChart', dom = 'sctchart1', width = 600)
+
+
+sccplot1$yAxis(axisLabel = "Fuel Economy Score Automatic", tickFormat = "#! function(d) {return '' + d} !#")
+sccplot1$xAxis( axisLabel = "Year")
+sccplot1$chart(size = '#! function(d){return d.feScore} !#')
+sccplot1$yAxis(tickFormat = "#! function(d) {return '' + d3.format(',.')(d)} !#")
+sccplot1$chart(margin = list(right = 100))
+sccplot1$print('sctchart1')
+```
+
+---
+
+## Interactive Fuel Economy Score by Fuel Type by year for Manual
+
+```{r echo = F, results = 'asis'}
+ManvehFeScore<-subset(vehicleFeScore,transtype=='Manual')
+
+
+
+sccplot2 <- nPlot(feScore ~ year, group = 'atvType', data = ManvehFeScore, 
+                  type='scatterChart', dom = 'sctchart2', width = 600)
+
+sccplot2$yAxis(axisLabel = "Fuel Economy Score Automatic", tickFormat = "#! function(d) {return '' + d} !#")
+sccplot2$xAxis( axisLabel = "Year")
+sccplot2$chart(size = '#! function(d){return d.feScore} !#')
+sccplot2$yAxis(tickFormat = "#! function(d) {return '' + d3.format(',.')(d)} !#")
+sccplot2$chart(margin = list(right = 100))
+sccplot2$print('sctchart2')
+```
